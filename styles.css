@@ -7,23 +7,27 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Navigation */
-nav {
+header {
     background: #333;
     color: #fff;
-    padding: 10px;
 }
 
 nav ul {
     list-style: none;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav ul li a {
@@ -31,19 +35,22 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Sections */
-section {
+.content {
+    flex: 1;
+    text-align: center;
     padding: 20px;
-    margin: 20px 0;
 }
 
-/* Footer */
-footer {
-    background: #333;
+.home .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Adjust based on header/footer height */
+}
+
+.image-placeholder {
+    background-color: #444;
     color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
 }
