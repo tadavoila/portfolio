@@ -36,7 +36,7 @@
             font-size: 2rem;
             margin-bottom: 1rem;
             margin-top: 0px;
-       }
+        }
         .production .buttons {
             margin: 1rem 0;
         }
@@ -112,13 +112,21 @@
             <a href="../index.html">Home</a>
             <a href="../about.html">About</a>
             <a href="../resume.html">Resume</a>
-            <a href="../data-science.html">Data Science</a>
-            <div class="dropdown">
-                <span>Design</span>
-                <div class="dropdown-content">
-                    <a href="fabrication-painting.html">Fabrication/Painting</a>
-                    <a href="lighting-design.html">Lighting</a>
+            <div class="dropdown" id="dataScienceDropdown">
+                <span id="dataScienceToggle">Data Science</span>
+                <div class="dropdown-content" id="dataScienceMenu">
+                    <a href="../data_science/data-visualization.html">Data Visualization</a>
+                    <a href="../data_science/computational-linguistics.html">Computational Linguistics</a>
+                    <a href="../data_science/games.html">Games</a>
+                    <a href="../data_science/guides-tutorials.html">Guides/Tutorials</a>
+                </div>
+            </div>
+            <div class="dropdown" id="designDropdown">
+                <span id="designToggle">Design</span>
+                <div class="dropdown-content" id="designMenu">
                     <a href="projections-video.html">Projections/Video</a>
+                    <a href="lighting-design.html">Lighting</a>
+                    <a href="fabrication-painting.html">Fabrication/Painting</a>
                 </div>
             </div>
             <a href="../contact.html">Contact</a>
@@ -133,7 +141,7 @@
                     <a href="https://www.instructables.com/Final-In-Progress-3D-Printed-Sandals/" target="_blank" rel="noopener"><button>Documentation</button></a>
                 </div>
                 <div class="swiper-container">
-                    <p style="text-align: left; font-size: 16px;"">
+                    <p style="text-align: left; font-size: 16px;">
                         I designed a pair of 3D-printed sandals perfectly mapped to my feet in Fusion 360 and printed it with TPU 95A in the Bambu printer.                    
                     </p>            
                     <div class="swiper-wrapper">
@@ -149,8 +157,9 @@
                     <a href="https://www.instructables.com/Week-3-Flower-Lampshades/" target="_blank" rel="noopener"><button>Documentation</button></a>
                 </div>
                 <div class="swiper-container">
-                    <p style="text-align: left; font-size: 16px;"">
-                        I created two parametric flower lampshade designs for a small lightbulb with Rhino 7 and Grasshopper, sliced my design in Cura, and 3D printed my first shade on a Prusa i3 printer and my second shade on an UltiMaker S5 printer using PLA.                    </p>            
+                    <p style="text-align: left; font-size: 16px;">
+                        I created two parametric flower lampshade designs for a small lightbulb with Rhino 7 and Grasshopper, sliced my design in Cura, and 3D printed my first shade on a Prusa i3 printer and my second shade on an UltiMaker S5 printer using PLA.
+                    </p>            
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../fabrication-painting-images/Flower Lampshades/Flower Lamps Image 1.png" alt="Flower Lampshades Image 1"></div>
                         <div class="swiper-slide"><img src="../fabrication-painting-images/Flower Lampshades/Flower Lamps Image 2.png" alt="Flower Lampshades Image 2"></div>
@@ -168,7 +177,7 @@
                 <p></p>
                 <h3>Night Night, Roger Roger</h3>
                 <div class="swiper-container">
-                    <p style="text-align: left; font-size: 16px;"">
+                    <p style="text-align: left; font-size: 16px;">
                         I worked as the lead technician and production supervisor for <em>Night Night, Roger Roger</em> by Roni Ragone, which was directed by Julie Fishell and scenic designed by Maggie Welch. As part of my responsibilities, I painted the floor swirls every night the show ran.
                     </p>            
                     <div class="swiper-wrapper">
@@ -181,7 +190,7 @@
                 <p></p>
                 <h3>Lava Mountain</h3>
                 <div class="swiper-container">
-                    <p style="text-align: left; font-size: 16px;"">
+                    <p style="text-align: left; font-size: 16px;">
                         I designed a 1/2" scale model of a lava mountain with foamcore, tacky clue, gesso, acryllic paint, sandpaper, and epoxy.
                     </p>            
                     <div class="swiper-wrapper">
@@ -208,6 +217,33 @@
             freeMode: false, 
             shortSwipes: false,
         });
+
+        // Toggle menu visibility on click for mobile devices
+        function toggleMenu(menuId, toggleId) {
+            const menu = document.getElementById(menuId);
+            const toggle = document.getElementById(toggleId);
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+
+            toggle.addEventListener('mouseenter', function() {
+                menu.classList.add('show');
+            });
+
+            toggle.addEventListener('mouseleave', function() {
+                menu.classList.remove('show');
+            });
+
+            menu.addEventListener('mouseenter', function() {
+                menu.classList.add('show');
+            });
+
+            menu.addEventListener('mouseleave', function() {
+                menu.classList.remove('show');
+            });
+        }
+        toggleMenu('dataScienceMenu', 'dataScienceToggle');
+        toggleMenu('designMenu', 'designToggle');
     </script>
 </body>
 </html>

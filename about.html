@@ -37,5 +37,35 @@
         <h2>About Me</h2>
         <p>Write about yourself here.</p>
     </section>
+
+    <script>
+        // Toggle menu visibility on click for mobile devices
+        function toggleMenu(menuId, toggleId) {
+            const menu = document.getElementById(menuId);
+            const toggle = document.getElementById(toggleId);
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+
+            toggle.addEventListener('mouseenter', function() {
+                menu.classList.add('show');
+            });
+
+            toggle.addEventListener('mouseleave', function() {
+                menu.classList.remove('show');
+            });
+
+            menu.addEventListener('mouseenter', function() {
+                menu.classList.add('show');
+            });
+
+            menu.addEventListener('mouseleave', function() {
+                menu.classList.remove('show');
+            });
+        }
+
+        toggleMenu('dataScienceMenu', 'dataScienceToggle');
+        toggleMenu('designMenu', 'designToggle');
+    </script>
 </body>
 </html>

@@ -164,9 +164,10 @@ section {
 .socials {
     text-align: left;
     margin-top: 1.5rem;
+    font-size: 2rem;
 }
 
-socials a {
+.socials a {
     margin: 0 0.5rem;
     text-decoration: none;
     color: black;

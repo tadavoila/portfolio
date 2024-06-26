@@ -112,13 +112,21 @@
             <a href="../index.html">Home</a>
             <a href="../about.html">About</a>
             <a href="../resume.html">Resume</a>
-            <a href="../data-science.html">Data Science</a>
-            <div class="dropdown">
-                <span>Design</span>
-                <div class="dropdown-content">
-                    <a href="fabrication-painting.html">Fabrication/Painting</a>
-                    <a href="lighting-design.html">Lighting</a>
+            <div class="dropdown" id="dataScienceDropdown">
+                <span id="dataScienceToggle">Data Science</span>
+                <div class="dropdown-content" id="dataScienceMenu">
+                    <a href="../data_science/data-visualization.html">Data Visualization</a>
+                    <a href="../data_science/computational-linguistics.html">Computational Linguistics</a>
+                    <a href="../data_science/games.html">Games</a>
+                    <a href="../data_science/guides-tutorials.html">Guides/Tutorials</a>
+                </div>
+            </div>
+            <div class="dropdown" id="designDropdown">
+                <span id="designToggle">Design</span>
+                <div class="dropdown-content" id="designMenu">
                     <a href="projections-video.html">Projections/Video</a>
+                    <a href="lighting-design.html">Lighting</a>
+                    <a href="fabrication-painting.html">Fabrication/Painting</a>
                 </div>
             </div>
             <a href="../contact.html">Contact</a>
@@ -138,11 +146,11 @@
                     <a href="../lighting-images/By the Bog of Cats/Siddharth Chattoraj BBG Cue Sheet.pdf" target="_blank"><button>Cue Sheet</button></a>
                 </div>
                 <div class="swiper-container">
-                    <p style="text-align: left; font-size: 16px;"">
+                    <p style="text-align: left; font-size: 16px;">
                         I lighting designed the play <em>By the Bog of Cats</em> by Marina Carr. The lighting centers around the concept that envy and selfishness are fundamental human traits that can irreparably sever long-held relationships. I drew the plot and section with Vectorworks. 
                     </p>            
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../lighting-images/By the Bog of Cats/Siddharth Chattoraj BBG Selected Light Plot.png"" alt="BBG Image 1"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/By the Bog of Cats/Siddharth Chattoraj BBG Selected Light Plot.png" alt="BBG Image 1"></div>
                     </div>
                 </div>
             </div>
@@ -155,7 +163,7 @@
                     <a href="../lighting-images/Chronology of Love/Siddharth Chattoraj Chronology of Love Light Plot.png" target="_blank"><button>Light Plot</button></a>
                 </div>
                 <div class="swiper-container">
-                    <p style="text-align: left; font-size: 16px;"">
+                    <p style="text-align: left; font-size: 16px;">
                         I lighting designed the song "Chronology of Love." The lighting centers around the concept that love is more than infatuation. Love requires time and effort to understand one another, and it can transcend beyond
                         death.
                     </p>            
@@ -181,7 +189,7 @@
                     <a href="https://youtu.be/KM3-aZcgUNI" target="_blank" rel="noopener"><button>Full Video</button></a>
                 </div>
                 <div class="swiper-container">
-                    <p style="text-align: left; font-size: 16px;"">
+                    <p style="text-align: left; font-size: 16px;">
                         I lighting designed the song "Inopia" by Michael Stutz. The lighting centers around the concept that all human beings should be valued and appreciated.
                     </p>            
                     <div class="swiper-wrapper">
@@ -214,7 +222,7 @@
                     <a href="../lighting-images/Bus Stop/Siddharth Chattoraj Bus Stop Light Plot Breakdown and Cue Sheet.pdf" target="_blank"><button>Cue Sheet</button></a>
                 </div>
                 <div class="swiper-container">
-                    <p style="text-align: left; font-size: 16px;"">
+                    <p style="text-align: left; font-size: 16px;">
                         I lighting designed the play "Bus Stop" by William Inge. The lighting centers around the concept that accepting one's own flaws and vulnerabilities and actively working to acknowledge or
                         change them paves the way for personal growth and genuine, meaningful connections with others.
                     </p>            
@@ -242,6 +250,34 @@
             freeMode: false, 
             shortSwipes: false,
         });
+
+        // Toggle menu visibility on click for mobile devices
+        function toggleMenu(menuId, toggleId) {
+            const menu = document.getElementById(menuId);
+            const toggle = document.getElementById(toggleId);
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+
+            toggle.addEventListener('mouseenter', function() {
+                menu.classList.add('show');
+            });
+
+            toggle.addEventListener('mouseleave', function() {
+                menu.classList.remove('show');
+            });
+
+            menu.addEventListener('mouseenter', function() {
+                menu.classList.add('show');
+            });
+
+            menu.addEventListener('mouseleave', function() {
+                menu.classList.remove('show');
+            });
+        }
+
+        toggleMenu('dataScienceMenu', 'dataScienceToggle');
+        toggleMenu('designMenu', 'designToggle');
     </script>
 </body>
 </html>

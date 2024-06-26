@@ -112,13 +112,21 @@
             <a href="../index.html">Home</a>
             <a href="../about.html">About</a>
             <a href="../resume.html">Resume</a>
-            <a href="../data-science.html">Data Science</a>
-            <div class="dropdown">
-                <span>Design</span>
-                <div class="dropdown-content">
-                    <a href="fabrication-painting.html">Fabrication/Painting</a>
-                    <a href="lighting-design.html">Lighting</a>
+            <div class="dropdown" id="dataScienceDropdown">
+                <span id="dataScienceToggle">Data Science</span>
+                <div class="dropdown-content" id="dataScienceMenu">
+                    <a href="../data_science/data-visualization.html">Data Visualization</a>
+                    <a href="../data_science/computational-linguistics.html">Computational Linguistics</a>
+                    <a href="../data_science/games.html">Games</a>
+                    <a href="../data_science/guides-tutorials.html">Guides/Tutorials</a>
+                </div>
+            </div>
+            <div class="dropdown" id="designDropdown">
+                <span id="designToggle">Design</span>
+                <div class="dropdown-content" id="designMenu">
                     <a href="projections-video.html">Projections/Video</a>
+                    <a href="lighting-design.html">Lighting</a>
+                    <a href="fabrication-painting.html">Fabrication/Painting</a>
                 </div>
             </div>
             <a href="../contact.html">Contact</a>
@@ -246,6 +254,34 @@
             freeMode: false, 
             shortSwipes: false,
         });
+
+        // Toggle menu visibility on click for mobile devices
+        function toggleMenu(menuId, toggleId) {
+                const menu = document.getElementById(menuId);
+                const toggle = document.getElementById(toggleId);
+                toggle.addEventListener('click', function() {
+                    menu.classList.toggle('show');
+                });
+
+                toggle.addEventListener('mouseenter', function() {
+                    menu.classList.add('show');
+                });
+
+                toggle.addEventListener('mouseleave', function() {
+                    menu.classList.remove('show');
+                });
+
+                menu.addEventListener('mouseenter', function() {
+                    menu.classList.add('show');
+                });
+
+                menu.addEventListener('mouseleave', function() {
+                    menu.classList.remove('show');
+                });
+            }
+            
+            toggleMenu('dataScienceMenu', 'dataScienceToggle');
+            toggleMenu('designMenu', 'designToggle');
     </script>
 </body>
 </html>
