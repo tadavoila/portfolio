@@ -166,7 +166,7 @@ section {
     margin-top: 1.5rem;
 }
 
-.socials a {
+socials a {
     margin: 0 0.5rem;
     text-decoration: none;
     color: black;
@@ -231,5 +231,13 @@ button:hover {
 
     .main-content img {
         margin-top: 1rem;
+    }
+
+    .dropdown-content {
+        display: none;
+    }
+    
+    .dropdown-content.show {
+        display: block;
     }
 }
