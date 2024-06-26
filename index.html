@@ -20,13 +20,12 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            pointer-events: none;
         }
     </style>
 </head>
+<canvas id="backgroundCanvas"></canvas>
 <body>
     <header>
-        <canvas id="backgroundCanvas"></canvas>
         <h1>Siddharth Chattoraj</h1>
         <nav>
             <a href="index.html">Home</a>
@@ -37,36 +36,22 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
-    <div class="image-container-rb">
-        <img src="images/image3.png" alt="Image 3">
-    </div>
-    <div class="image-container-lb">
-        <img src="images/image1.png" alt="Image 1">
-    </div>
-    <div class="image-container-right">
-        <img src="images/image2.png" alt="Image 2">
-    </div>
-    <div class="image-container">
-        <img src="images/image4.jpg" alt="Image 4">
-    </div>
     <section>
         <div class="main-content">
             <div>
                 <h2>Hi There, I'm Siddharth!</h2>
                 <p>I am a data scientist, visual media designer, and storyteller.</p>
-                <button>Contact Me</button>
+                <a href="contact.html"><button>Contact Me</button></a>
                 <div class="socials">
-                    <a href="#" class="fab fa-linkedin"></a>
-                    <a href="#" class="fab fa-github"></a>
-                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="https://www.linkedin.com/in/siddharth-chattoraj-53269010a/" class="fab fa-linkedin"></a>
+                    <a href="https://github.com/tadavoila" class="fab fa-github"></a>
+                    <a href="mailto:schattoraj@ucsb.edu" class="fas fa-envelope"></a>
                 </div>
+               
             </div>
             <img src="images/your_photo.jpg" alt="Your Photo">
         </div>
     </section>
-    <div class="image-container-below">
-        <img src="images/image5.jpg" alt="Image 5">
-    </div>
 
     <script>
         const canvas = document.getElementById('backgroundCanvas');
@@ -123,22 +108,15 @@
         }
 
         canvas.addEventListener('mousemove', (e) => {
-            for (let dot of dots) {
+        for (let dot of dots) {
                 const dx = e.clientX - dot.x;
                 const dy = e.clientY - dot.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < 100) {
-                    dot.dx = dx / distance * 1.5; // Increase the reactivity
-                    dot.dy = dy / distance * 1.5;
-                } else {
-                    dot.dx *= 0.95;
-                    dot.dy *= 0.95;
+                    dot.dx = dx / distance; // Minimal reactivity
+                    dot.dy = dy / distance;
                 }
             }
-        });
-
-        canvas.addEventListener('mouseleave', () => {
-            createDots();
         });
 
         createDots();
