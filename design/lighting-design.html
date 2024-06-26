@@ -6,6 +6,7 @@
     <title>Siddharth Chattoraj: Lighting Design</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
         html, body {
             background-color: black;
@@ -13,6 +14,9 @@
             height: 100%;
             margin: 0;
             padding: 0;
+        }
+        header {
+            background: black;
         }
         header h1 {
             font-size: 2rem;
@@ -23,15 +27,15 @@
             font-size: 2.5rem;
             color: white;
             text-align: center;
-            margin-top: 0;
+            margin-top: 0px;
         }
         .production {
             text-align: center;
-            margin: 1.5rem 0;
         }
         .production h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
+            margin-top: 0px;
         }
         .production .buttons {
             margin: 1rem 0;
@@ -50,19 +54,48 @@
         .production .buttons button:hover {
             background-color: #555; /* Slightly lighter background on hover */
         }
-        .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            background-color: black;
+        .swiper-container {
+            width: 75%;
+            max-width: 1000px;
+            margin: auto;
+            position: relative;
+            padding: 26px 0;
+            overflow: hidden;
         }
-        .gallery img {
-            width: 200px;
+        .swiper-slide img {
+            width: 100%;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
+        .swiper-pagination-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 35px;
+        }
+        .swiper-pagination {
+            order: 2; /* Ensure pagination is in the middle */
+            margin: 0 15px;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .swiper-button-prev {
+            order: 1;
+        }
+        .swiper-button-next {
+            order: 3;
+        }
         section {
+            top: -100px;
             position: relative;
             max-width: 1000px;
             z-index: 2;
@@ -101,19 +134,45 @@
                     <button>Full Video</button>
                 </div>
                 <p>Short Description of Production 1</p>
-                <div class="gallery">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 1.png" alt="Production 1 Image 1">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 2.png" alt="Production 1 Image 2">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 3.png" alt="Production 1 Image 3">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 4.png" alt="Production 1 Image 4">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 5.png" alt="Production 1 Image 5">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 6.png" alt="Production 1 Image 6">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 7.png" alt="Production 1 Image 7">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 8.png" alt="Production 1 Image 8">
-                    <img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 9.png" alt="Production 1 Image 9">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 1.png" alt="Production 1 Image 1"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 2.png" alt="Production 1 Image 2"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 3.png" alt="Production 1 Image 3"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 4.png" alt="Production 1 Image 4"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 5.png" alt="Production 1 Image 5"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 6.png" alt="Production 1 Image 6"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 7.png" alt="Production 1 Image 7"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 8.png" alt="Production 1 Image 8"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 9.png" alt="Production 1 Image 9"></div>
+                    </div>
+                    <!-- Add Pagination and Navigation inside a container -->
+                    <div class="swiper-pagination-container">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'fraction',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            freeMode: false, 
+            shortSwipes: false,
+        });
+    </script>
 </body>
 </html>
