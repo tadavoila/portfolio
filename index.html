@@ -3,130 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siddharth Chattoraj: Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Siddharth Chattoraj: Lighting Design</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
         html, body {
-            overflow: hidden;
+            background-color: black;
+            color: white;
             height: 100%;
             margin: 0;
             padding: 0;
         }
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
+        header {
+            background: black;
+        }
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+        .main-content h2 {
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            margin-top: 0px;
+        }
+        .production {
+            text-align: center;
+        }
+        .production h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            margin-top: 0px;
+        }
+        .production .buttons {
+            margin: 1rem 0;
+        }
+        .production .buttons button {
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            background-color: #333; /* Menu color */
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1rem;
+        }
+        .production .buttons button:hover {
+            background-color: #555; /* Slightly lighter background on hover */
+        }
+        .swiper-container {
+            width: 75%;
+            max-width: 1000px;
+            margin: auto;
+            position: relative;
+            padding: 26px 0;
+            overflow: hidden;
+            margin-top: -50px;
+        }
+        .swiper-slide img {
             width: 100%;
-            height: 100%;
-            z-index: 0;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+        .swiper-pagination-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 35px;
+        }
+        .swiper-pagination {
+            order: 2; /* Ensure pagination is in the middle */
+            margin: 0 15px;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .swiper-button-prev {
+            order: 1;
+        }
+        .swiper-button-next {
+            order: 3;
+        }
+        section {
+            top: -100px;
+            position: relative;
+            max-width: 1000px;
+            z-index: 2;
+            background-color: black;
+            background: black;
         }
     </style>
 </head>
-<canvas id="backgroundCanvas"></canvas>
 <body>
     <header>
         <h1>Siddharth Chattoraj</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="resume.html">Resume</a>
-            <a href="data-science.html">Data Science</a>
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a href="../resume.html">Resume</a>
+            <a href="../data-science.html">Data Science</a>
             <div class="dropdown">
                 <span>Design</span>
                 <div class="dropdown-content">
-                    <a href="design/fabrication-painting.html">Fabrication/Painting</a>
-                    <a href="design/lighting-design.html">Lighting</a>
-                    <a href="design/projections-video.html">Projections/Video</a>
+                    <a href="fabrication-painting.html">Fabrication/Painting</a>
+                    <a href="lighting-design.html">Lighting</a>
+                    <a href="projections-video.html">Projections/Video</a>
                 </div>
             </div>
-            <a href="contact.html">Contact</a>
+            <a href="../contact.html">Contact</a>
         </nav>
     </header>
     <section>
         <div class="main-content">
-            <div>
-                <h2>Hi There, I'm Siddharth!</h2>
-                <p>I am a data scientist, visual media designer, and storyteller. <br>Please use the navigation bar above to view more information<br>about me and explore my data science and design portfolios! </p>
-                <a href="contact.html"><button>Contact Me</button></a>
-                <div class="socials">
-                    <a href="https://www.linkedin.com/in/siddharth-chattoraj-53269010a/" class="fab fa-linkedin"></a>
-                    <a href="https://github.com/tadavoila" class="fab fa-github"></a>
-                    <a href="mailto:schattoraj@ucsb.edu" class="fas fa-envelope"></a>
+            <h2>Lighting Design Portfolio</h2>
+            <div class="production">
+                <h3>Inopia</h3>
+                <div class="buttons">
+                    <a href="../lighting-images/Inopia/Siddharth Chattoraj Inopia Music Analysis.pdf"><button>Research</button></a>
+                    <a href="https://youtu.be/KM3-aZcgUNI">
+                        <button>Full Video</button>
+                    </a>
+                </div>
+                <div class="swiper-container">
+                    <div style="text-align: left; font-size: 16px;">
+                        I lighting designed "Inopia" for my final project for THTR 123: Advanced Lighting Design, and the lighting centers around the concept that all human beings should be valued and appreciated. The music is "Inopia" by Michael Stutz.
+                    </div>            
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 1.png" alt="Production 1 Image 1"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 2.png" alt="Production 1 Image 2"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 3.png" alt="Production 1 Image 3"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 4.png" alt="Production 1 Image 4"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 5.png" alt="Production 1 Image 5"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 6.png" alt="Production 1 Image 6"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 7.png" alt="Production 1 Image 7"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 8.png" alt="Production 1 Image 8"></div>
+                        <div class="swiper-slide"><img src="../lighting-images/Inopia/Siddharth Chattoraj Inopia Pictures/Siddharth Chattoraj Inopia Image 9.png" alt="Production 1 Image 9"></div>
+                    </div>
+                    <!-- Add Pagination and Navigation inside a container -->
+                    <div class="swiper-pagination-container">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
-            <img src="images/your_photo.jpg" alt="Your Photo">
         </div>
     </section>
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        const canvas = document.getElementById('backgroundCanvas');
-        const ctx = canvas.getContext('2d');
-        let dots = [];
-
-        function resizeCanvas() {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        function createDots() {
-            dots = [];
-            for (let i = 0; i < 500; i++) { // Increase the number of dots
-                dots.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random()/8 + 1,
-                    dx: Math.random() - 0.5,
-                    dy: Math.random() - 0.5
-                });
-            }
-        }
-
-        function drawDots() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let dot of dots) {
-                ctx.beginPath();
-                ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2, false);
-                ctx.fillStyle = 'white';
-                ctx.fill();
-                ctx.closePath();
-            }
-        }
-
-        function updateDots() {
-            for (let dot of dots) {
-                dot.x += dot.dx;
-                dot.y += dot.dy;
-                if (dot.x < 0 || dot.x > canvas.width || dot.y < 0 || dot.y > canvas.height) {
-                    dot.x = Math.random() * canvas.width;
-                    dot.y = Math.random() * canvas.height;
-                }
-            }
-        }
-
-        function animate() {
-            drawDots();
-            updateDots();
-            requestAnimationFrame(animate);
-        }
-
-        canvas.addEventListener('mousemove', (e) => {
-        for (let dot of dots) {
-                const dx = e.clientX - dot.x;
-                const dy = e.clientY - dot.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100) {
-                    dot.dx = dx / distance; // Minimal reactivity
-                    dot.dy = dy / distance;
-                }
-            }
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'fraction',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            freeMode: false, 
+            shortSwipes: false,
         });
-
-        createDots();
-        animate();
     </script>
 </body>
 </html>
