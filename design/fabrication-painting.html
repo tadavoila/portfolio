@@ -142,7 +142,7 @@
                 </div>
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
-                        I designed a pair of 3D-printed sandals perfectly mapped to my feet in Fusion 360 and printed it with TPU 95A in the Bambu printer.                    
+                        I designed a pair of 3D-printed sandals perfectly mapped to my feet. I used Fusion 360 to design the sandals, and after a rigorous testing process, I used a Bambu printer with TPU 95A to print the sandals. The shoes are soft, comfortable, and sturdy.                  
                     </p>            
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../fabrication-painting-images/Sandals/Sandals Image 1.jpg" alt="Sandals Image 1"></div>
@@ -165,7 +165,7 @@
                         <div class="swiper-slide"><img src="../fabrication-painting-images/Flower Lampshades/Flower Lamps Image 2.png" alt="Flower Lampshades Image 2"></div>
                     </div>
                     <!-- Add Pagination and Navigation inside a container -->
-                    <div class="swiper-pagination-container">
+                    <div class="swiper-pagination-container" id="flowerLampsPagination">
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
                         <div class="swiper-button-next"></div>
@@ -191,7 +191,7 @@
                 <h3>Lava Mountain</h3>
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
-                        I designed a 1/2" scale model of a lava mountain with foamcore, tacky clue, gesso, acryllic paint, sandpaper, and epoxy.
+                        I designed a 1/2" scale model of a lava mountain with foamcore, tacky clue, gesso, acryllic paint, sandpaper, and epoxy.I designed a 1/2" scale model of a lava mountain with foamcore, tacky clue, gesso, acryllic paint, sandpaper, and epoxy. I glued together five pieces of 3/16" foamcore to create the mountain height, and then I used an X-acto knife, sandpaper, and gesso to create the mountain's shape and smooth texture. I then painted the mountain with acryllic paint and added epoxy to create the lava flow.                  
                     </p>            
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../fabrication-painting-images/Lava Mountain/Lava Mountain Image 1.jpg" alt="Lava Mountain Image 1"></div>
@@ -202,20 +202,39 @@
     </section>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                type: 'fraction',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            freeMode: false, 
-            shortSwipes: false,
+        function initializeSwiper(container) {
+            const wrapper = container.querySelector('.swiper-wrapper');
+            const slides = wrapper.querySelectorAll('.swiper-slide');
+
+            if (slides.length === 1) {
+                // Add a dummy slide if there's only one slide
+                const dummySlide = slides[0].cloneNode(true);
+                wrapper.appendChild(dummySlide);
+            }
+
+            new Swiper(container, {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'fraction',
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                freeMode: false, 
+                shortSwipes: false,
+            });
+        }
+
+        // Initialize Swiper for the flower lampshades production only
+        document.addEventListener('DOMContentLoaded', function() {
+            const flowerSwiperContainer = document.querySelector('#flowerLampsPagination').closest('.swiper-container');
+            if (flowerSwiperContainer) {
+                initializeSwiper(flowerSwiperContainer);
+            }
         });
 
         // Toggle menu visibility on click for mobile devices
