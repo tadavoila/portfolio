@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Your Name</title>
+    <title>Siddharth Chattoraj: Home</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         html, body {
             height: 100%;
@@ -29,21 +30,41 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="cv.html">Resume</a>
-            <a href="design/lighting-design.html">Lighting Design</a>
-            <a href="design/projections-video.html">Projection Design</a>
+            <div class="dropdown" id="dataScienceDropdown">
+                <span id="dataScienceToggle">Data Science</span>
+                <div class="dropdown-content" id="dataScienceMenu">
+                    <a href="data_science/data-visualization.html">Data Visualization</a>
+                    <a href="data_science/computational-linguistics.html">Computational Linguistics</a>
+                    <a href="data_science/guides-tutorials.html">Guides/Tutorials</a>
+                </div>
+            </div>
+            <div class="dropdown" id="designDropdown">
+                <span id="designToggle">Design</span>
+                <div class="dropdown-content" id="designMenu">
+                    <a href="design/projections-video.html">Projections/Video</a>
+                    <a href="design/lighting-design.html">Lighting</a>
+                    <a href="design/fabrication-painting.html">Fabrication/Painting</a>
+                </div>
+            </div>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
     <section>
-        <h2>Resume</h2>
-        <div class="buttons">
-            <a href="cv-files/siddharth_chattoraj_cv.pdf" target="_blank"><button>View Resume</button></a>
+        <div class="main-content">
+            <div>
+                <h2>Hi There, I'm Siddharth!</h2>
+                <p>I am a data scientist, visual media designer, and storyteller. <br>Please use the navigation bar above to view more information<br>about me and explore my data science and design portfolios! </p>
+                <a href="contact.html"><button>Contact Me</button></a>
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/siddharth-chattoraj-53269010a/" class="fab fa-linkedin"></a>
+                    <a href="https://github.com/tadavoila" class="fab fa-github"></a>
+                    <a href="mailto:schattoraj@ucsb.edu" class="fas fa-envelope"></a>
+                </div>
+            </div>
+            <img src="images/your_photo.jpg" alt="Your Photo">
         </div>
-        <p>Please view my resume below or click the button above to view the file in a new tab.</p>
-        <iframe src="cv-files/siddharth_chattoraj_cv.pdf" width="100%" height="600px">
-            This browser does not support PDFs. Please download the PDF to view it.
-        </iframe>  
     </section>
+
     <script>
         const canvas = document.getElementById('backgroundCanvas');
         const ctx = canvas.getContext('2d');
@@ -112,7 +133,7 @@
 
         createDots();
         animate();
-        
+
         // Toggle menu visibility on click for mobile devices
         function toggleMenu(menuId, toggleId) {
             const menu = document.getElementById(menuId);
