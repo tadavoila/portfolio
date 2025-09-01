@@ -100,6 +100,47 @@
             background-color: black;
             background: black;
         }
+
+        /* --- Mobile-only fixes: keep desktop unchanged --- */
+        @media (max-width: 600px) {
+            html, body {
+                overflow-x: hidden; /* stop any side scroll on phones */
+            }
+            section,
+            .main-content,
+            .production,
+            .swiper-container,
+            .swiper-wrapper,
+            .swiper-slide,
+            .swiper-pagination-container {
+                max-width: 100vw;
+                box-sizing: border-box;
+            }
+            section {
+                top: 0;                /* remove negative offset only on mobile */
+                padding: 0 12px;       /* breathing room without exceeding 100vw */
+            }
+            .swiper-container {
+                width: 100%;           /* clamp slider to viewport on mobile */
+                margin-top: 0;         /* avoid pulling up into header on phones */
+                padding: 16px 0;
+            }
+            .swiper-pagination-container {
+                width: 100%;
+                padding: 0 8px;
+            }
+            .swiper-button-next, .swiper-button-prev {
+                width: 36px;           /* slightly smaller so they don't push layout */
+                height: 36px;
+            }
+            header h1 { font-size: 1.5rem; }
+            .production h3 { font-size: 1.5rem; }
+            .main-content h2 { font-size: 2rem; }
+            nav {
+                max-width: 100vw;      /* guard against long navs */
+                flex-wrap: wrap;
+            }
+        }
     </style>
 </head>
 <body>
@@ -116,36 +157,48 @@
     <section>
         <div class="main-content">
             <h2>Fabrication Design Portfolio</h2>
+
             <div class="production">
                 <h3>3D-Printed Sandals</h3>
                 <div class="buttons">
-                    <a href="https://www.instructables.com/Final-In-Progress-3D-Printed-Sandals/" target="_blank" rel="noopener"><button>Documentation</button></a>
+                    <a href="https://www.instructables.com/Final-In-Progress-3D-Printed-Sandals/" target="_blank" rel="noopener">
+                        <button>Documentation</button>
+                    </a>
                 </div>
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
-                        I designed a pair of 3D-printed sandals perfectly mapped to my feet. I used Fusion 360 to design the sandals, and after a rigorous testing process, I used a Bambu printer with TPU 95A to print the sandals. The shoes are soft, comfortable, and sturdy.                  
-                    </p>            
+                        I designed a pair of 3D-printed sandals perfectly mapped to my feet. I used Fusion 360 to design the sandals, and after a rigorous testing process, I used a Bambu printer with TPU 95A to print the sandals. The shoes are soft, comfortable, and sturdy.
+                    </p>
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../fabrication-painting-images/Sandals/Sandals Image 1.jpg" alt="Sandals Image 1"></div>
+                        <div class="swiper-slide">
+                            <img src="../fabrication-painting-images/Sandals/Sandals Image 1.jpg" alt="Sandals Image 1">
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="production">
                 <p></p>
                 <p></p>
                 <h3>Flower Lampshades</h3>
                 <div class="buttons">
-                    <a href="https://www.instructables.com/Week-3-Flower-Lampshades/" target="_blank" rel="noopener"><button>Documentation</button></a>
+                    <a href="https://www.instructables.com/Week-3-Flower-Lampshades/" target="_blank" rel="noopener">
+                        <button>Documentation</button>
+                    </a>
                 </div>
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I created two parametric flower lampshade designs for a small lightbulb with Rhino 7 and Grasshopper, sliced my design in Cura, and 3D printed my first shade on a Prusa i3 printer and my second shade on an UltiMaker S5 printer using PLA.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../fabrication-painting-images/Flower Lampshades/Flower Lamps Image 1.png" alt="Flower Lampshades Image 1"></div>
-                        <div class="swiper-slide"><img src="../fabrication-painting-images/Flower Lampshades/Flower Lamps Image 2.png" alt="Flower Lampshades Image 2"></div>
+                        <div class="swiper-slide">
+                            <img src="../fabrication-painting-images/Flower Lampshades/Flower Lamps Image 1.png" alt="Flower Lampshades Image 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../fabrication-painting-images/Flower Lampshades/Flower Lamps Image 2.png" alt="Flower Lampshades Image 2">
+                        </div>
                     </div>
-                    <!-- Add Pagination and Navigation inside a container -->
+                    <!-- Pagination + Nav for this slider -->
                     <div class="swiper-pagination-container" id="flowerLampsPagination">
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
@@ -153,6 +206,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
                 <p></p>
                 <p></p>
@@ -160,14 +214,18 @@
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I worked as the lead technician and production supervisor for <em>Night Night, Roger Roger</em> by Roni Ragone, which was directed by Julie Fishell and scenic designed by Maggie Welch. As part of my responsibilities, I painted the floor swirls every night the show ran.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../fabrication-painting-images/Night Night/Night Night Image 1.jpg" alt="Night Night, Roger Roger Image 1"></div>
+                        <div class="swiper-slide">
+                            <img src="../fabrication-painting-images/Night Night/Night Night Image 1.jpg" alt="Night Night, Roger Roger Image 1">
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         function initializeSwiper(container) {
@@ -175,7 +233,7 @@
             const slides = wrapper.querySelectorAll('.swiper-slide');
 
             if (slides.length === 1) {
-                // Add a dummy slide if there's only one slide
+                // Add a dummy slide if there's only one slide (keeps fraction + nav stable)
                 const dummySlide = slides[0].cloneNode(true);
                 wrapper.appendChild(dummySlide);
             }
@@ -192,14 +250,14 @@
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
-                freeMode: false, 
+                freeMode: false,
                 shortSwipes: false,
             });
         }
 
         // Initialize Swiper for the flower lampshades production only
         document.addEventListener('DOMContentLoaded', function() {
-            const flowerSwiperContainer = document.querySelector('#flowerLampsPagination').closest('.swiper-container');
+            const flowerSwiperContainer = document.querySelector('#flowerLampsPagination')?.closest('.swiper-container');
             if (flowerSwiperContainer) {
                 initializeSwiper(flowerSwiperContainer);
             }
@@ -209,6 +267,8 @@
         function toggleMenu(menuId, toggleId) {
             const menu = document.getElementById(menuId);
             const toggle = document.getElementById(toggleId);
+            if (!menu || !toggle) return;
+
             toggle.addEventListener('click', function() {
                 menu.classList.toggle('show');
             });
