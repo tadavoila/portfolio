@@ -33,7 +33,7 @@
             font-size: 2rem;
             margin-bottom: 1rem;
             margin-top: 0px;
-       }
+        }
         .production .buttons {
             margin: 1rem 0;
         }
@@ -86,12 +86,9 @@
             align-items: center;
             justify-content: center;
         }
-        .swiper-button-prev {
-            order: 1;
-        }
-        .swiper-button-next {
-            order: 3;
-        }
+        .swiper-button-prev { order: 1; }
+        .swiper-button-next { order: 3; }
+
         section {
             top: -100px;
             position: relative;
@@ -99,6 +96,47 @@
             z-index: 2;
             background-color: black;
             background: black;
+        }
+
+        /* --- Mobile-only fixes (desktop unchanged) --- */
+        @media (max-width: 600px) {
+            html, body {
+                overflow-x: hidden;              /* stop horizontal scroll on phones */
+            }
+            section,
+            .main-content,
+            .production,
+            .swiper-container,
+            .swiper-wrapper,
+            .swiper-slide,
+            .swiper-pagination-container {
+                max-width: 100vw;                /* clamp widths to viewport */
+                box-sizing: border-box;
+            }
+            section {
+                top: 0;                          /* remove negative offset on mobile */
+                padding: 0 12px;                 /* safe padding without overflow */
+            }
+            .swiper-container {
+                width: 100%;                     /* slider fills viewport */
+                margin-top: 0;                   /* avoid pulling into header */
+                padding: 16px 0;
+            }
+            .swiper-pagination-container {
+                width: 100%;
+                padding: 0 8px;
+            }
+            .swiper-button-next, .swiper-button-prev {
+                width: 36px;                     /* smaller buttons to avoid push */
+                height: 36px;
+            }
+            header h1 { font-size: 1.5rem; }
+            .production h3 { font-size: 1.5rem; }
+            .main-content h2 { font-size: 2rem; }
+            nav {
+                max-width: 100vw;
+                flex-wrap: wrap;                 /* long navs won’t force overflow */
+            }
         }
     </style>
 </head>
@@ -113,19 +151,21 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+
     <section>
         <div class="main-content">
             <h2>Lighting Design Portfolio</h2>
+
             <div class="production">
                 <h3>UCSB Dance Company European Tour</h3>
                 <div class="buttons">
                     <a href="../lighting-images/UCSB Dance Company Lighting/Dance Co Lighting Design Documentation.pdf" target="_blank"><button>Documentation</button></a>
                     <a href="../lighting-images/UCSB Dance Company Lighting/Dance Co Travel Cue Sheet.pdf" target="_blank"><button>Cue Sheet</button></a>
-                    </div>
+                </div>
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
-                        I lighting designed the UCSB Dance Company's European Tour, which featured 7 pieces choreographed by faculty and guest artists. The tour included performances in  Santa Barbara, CA; Barcelona, Spain; Nowy Sącz, Poland; Tarnow, Poland; Sofia, Bulgaria; and 2 performances in Skopje, Macedonia. 
-                    </p>            
+                        I lighting designed the UCSB Dance Company's European Tour, which featured 7 pieces choreographed by faculty and guest artists. The tour included performances in Santa Barbara, CA; Barcelona, Spain; Nowy Sącz, Poland; Tarnow, Poland; Sofia, Bulgaria; and 2 performances in Skopje, Macedonia.
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../lighting-images/UCSB Dance Company Lighting/UCSB DC Lighting Image 1.jpg" alt="UCSB Dance Company Lighting Image 1"></div>
                         <div class="swiper-slide"><img src="../lighting-images/UCSB Dance Company Lighting/UCSB DC Lighting Image 2.jpg" alt="UCSB Dance Company Lighting Image 2"></div>
@@ -151,6 +191,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
                 <h3>Afterlight: A Waltz Through Time</h3>
                 <div class="buttons">
@@ -160,7 +201,7 @@
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I lighting designed "A Waltz Through Time", a <em>Howl's Moving Castle</em>-inspired dance choreographed by Milana Beck for the Afterlight concert directed by Christina McCarthy. I programmed the lighting using the ETC Eos console.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../lighting-images/Afterlight/Afterlight Image 1.jpg" alt="Afterlight Image 1"></div>
                         <div class="swiper-slide"><img src="../lighting-images/Afterlight/Afterlight Image 2.jpg" alt="Afterlight Image 2"></div>
@@ -183,6 +224,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
                 <h3>Strange Birds</h3>
                 <div class="buttons">
@@ -191,7 +233,7 @@
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I assistant lighting designed the new play <em>Strange Birds</em> by E.M. Lewis, lighting designed by Michael Klaers, and directed by Risa Brainin. The play is set in rural Oregon and focus on sisterhood. I programmed the lighting using the ETC Element console.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../lighting-images/Strange Birds/Strange Birds Image 2.jpg" alt="Strange Birds Image 2"></div>
                         <div class="swiper-slide"><img src="../lighting-images/Strange Birds/Strange Birds Image 1.jpg" alt="Strange Birds Image 1"></div>
@@ -211,6 +253,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
                 <h3>UCSB Dance Company Fundraiser</h3>
                 <div class="buttons">
@@ -219,7 +262,7 @@
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I designed the lighting, stage managed, and ran the lights and sound for the UCSB Dance Company Fundraiser, which featured 12 dances focusing on exhibiting the various talents of the UCSB Division of Dance. I programmed the lighting using the ETC Express board.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../lighting-images/UCSB Dance Company Fundraiser/Fundraiser Image 1.jpg" alt="Fundraiser Image 1"></div>
                         <div class="swiper-slide"><img src="../lighting-images/UCSB Dance Company Fundraiser/Fundraiser Image 2.jpg" alt="Fundraiser Image 2"></div>
@@ -244,6 +287,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
                 <h3>By the Bog of Cats</h3>
                 <div class="buttons">
@@ -256,16 +300,21 @@
                 </div>
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
-                        For my midterm for THTR 123: Advanced Lighting Design, I lighting designed the play <em>By the Bog of Cats</em> by Marina Carr. The lighting centers around the concept that envy and selfishness are fundamental human traits that can irreparably sever long-held relationships. I drew the plot and section with Vectorworks. 
-                    </p>            
+                        For my midterm for THTR 123: Advanced Lighting Design, I lighting designed the play <em>By the Bog of Cats</em> by Marina Carr. The lighting centers around the concept that envy and selfishness are fundamental human traits that can irreparably sever long-held relationships. I drew the plot and section with Vectorworks.
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../lighting-images/By the Bog of Cats/Siddharth Chattoraj BBG Selected Light Plot.png" alt="BBG Image 1"></div>
                     </div>
                 </div>
             </div>
+
+        </div>
     </section>
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
+        /* Existing behavior preserved; one Swiper init targeting the selector.
+           (If you ever want one Swiper per container, we can loop and init each.) */
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 1,
             spaceBetween: 10,
@@ -278,7 +327,7 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-            freeMode: false, 
+            freeMode: false,
             shortSwipes: false,
         });
 
@@ -286,6 +335,8 @@
         function toggleMenu(menuId, toggleId) {
             const menu = document.getElementById(menuId);
             const toggle = document.getElementById(toggleId);
+            if (!menu || !toggle) return;
+
             toggle.addEventListener('click', function() {
                 menu.classList.toggle('show');
             });
