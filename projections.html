@@ -33,7 +33,7 @@
             font-size: 2rem;
             margin-bottom: 1rem;
             margin-top: 0px;
-       }
+        }
         .production .buttons {
             margin: 1rem 0;
         }
@@ -86,12 +86,9 @@
             align-items: center;
             justify-content: center;
         }
-        .swiper-button-prev {
-            order: 1;
-        }
-        .swiper-button-next {
-            order: 3;
-        }
+        .swiper-button-prev { order: 1; }
+        .swiper-button-next { order: 3; }
+
         section {
             top: -100px;
             position: relative;
@@ -99,6 +96,47 @@
             z-index: 2;
             background-color: black;
             background: black;
+        }
+
+        /* --- Mobile-only fixes (desktop unchanged) --- */
+        @media (max-width: 600px) {
+            html, body {
+                overflow-x: hidden;              /* stop horizontal scroll on phones */
+            }
+            section,
+            .main-content,
+            .production,
+            .swiper-container,
+            .swiper-wrapper,
+            .swiper-slide,
+            .swiper-pagination-container {
+                max-width: 100vw;                /* clamp widths to viewport */
+                box-sizing: border-box;
+            }
+            section {
+                top: 0;                          /* remove negative offset on mobile */
+                padding: 0 12px;                 /* safe padding without overflow */
+            }
+            .swiper-container {
+                width: 100%;                     /* slider fills viewport */
+                margin-top: 0;                   /* avoid pulling into header */
+                padding: 16px 0;
+            }
+            .swiper-pagination-container {
+                width: 100%;
+                padding: 0 8px;
+            }
+            .swiper-button-next, .swiper-button-prev {
+                width: 36px;                     /* smaller buttons to avoid push */
+                height: 36px;
+            }
+            header h1 { font-size: 1.5rem; }
+            .production h3 { font-size: 1.5rem; }
+            .main-content h2 { font-size: 2rem; }
+            nav {
+                max-width: 100vw;
+                flex-wrap: wrap;                 /* long navs won’t force overflow */
+            }
         }
     </style>
 </head>
@@ -116,12 +154,13 @@
     <section>
         <div class="main-content">
             <h2>Projection Design Portfolio</h2>
+
             <div class="production">
                 <h3>Trollfest</h3>
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I assistant projection designed (with projection designer Greg Mitchell) the concert "Trollfest" in Juneau which featured The Heists, Whiskey Class, and Ray Troll and the Ratfish Wranglers in their final concert in Centennial Hall (three interconnected ballrooms). I designed all auxillary media (wall projections, image maginifications (IMAG), and side tree projections), and I created projections for a third of the Ratfish Wranglers main set by animating Ray Troll's art. We mapped 4 7.5K laser projectors (set on scaffolding) and 1 hanging center projector to build the display for the main screen. I controlled two hanging projectors for wall projections and two hanging projectors for image magnification, for a total of nine projectors and 11 video feeds (double for the IMAG). I used Adobe After Effects, Adobe Photoshop, and QLab to design the projections. 
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../projections-video-images/Trollfest/Trollfest Image 1.png" alt="Trollfest Image 1"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Trollfest/Trollfest Image 2.png" alt="Trollfest Image 2"></div>
@@ -137,7 +176,6 @@
                         <div class="swiper-slide"><img src="../projections-video-images/Trollfest/Trollfest Image 12.jpg" alt="Trollfest Image 12"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Trollfest/Trollfest Image 13.jpg" alt="Trollfest Image 13"></div>
                     </div>
-                    <!-- Add Pagination and Navigation inside a container -->
                     <div class="swiper-pagination-container">
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
@@ -145,6 +183,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
                 <h3>UCSB Dance Company</h3>
                 <div class="buttons">
@@ -153,11 +192,11 @@
                 </div>
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
-                    I projection designed the UCSB Dance Company's performances in Santa Barbara and on their European Tour, which featured 7 pieces choreographed by faculty and guest artists. The tour included performances in Santa Barbara, CA; Barcelona, Spain; Nowy Sącz, Poland; Tarnow, Poland; Sofia, Bulgaria; and 2 performances in Skopje, Macedonia. I used Adobe After Effects, Adobe Photoshop, Few-Shot Machine Learning Techniques, p5.js, Three.js, and QLab to design the projections. 5 of the 7 pieces projections, and I also designed a short film — focusing on dance as protest around the world — that played before the second piece.
-                   </p>            
+                        I projection designed the UCSB Dance Company's performances in Santa Barbara and on their European Tour, which featured 7 pieces choreographed by faculty and guest artists. The tour included performances in Santa Barbara, CA; Barcelona, Spain; Nowy Sącz, Poland; Tarnow, Poland; Sofia, Bulgaria; and 2 performances in Skopje, Macedonia. I used Adobe After Effects, Adobe Photoshop, Few-Shot Machine Learning Techniques, p5.js, Three.js, and QLab to design the projections. 5 of the 7 pieces projections, and I also designed a short film — focusing on dance as protest around the world — that played before the second piece.
+                    </p>
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 1.png" alt="UCSB Dance Company Projections Image 1"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 2.jpg" alt="UCSB Dance Company Projections Image 2"></div>
+                        <div class="swiper-slide"><img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 1.png" alt="UCSB Dance Company Projections Image 1"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 3.jpg" alt="UCSB Dance Company Projections Image 3"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 4.png" alt="UCSB Dance Company Projections Image 4"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 5.png" alt="UCSB Dance Company Projections Image 5"></div>
@@ -172,7 +211,6 @@
                         <div class="swiper-slide"><img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 14.png" alt="UCSB Dance Company Projections Image 14"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 15.png" alt="UCSB Dance Company Projections Image 15"></div>
                     </div>
-                    <!-- Add Pagination and Navigation inside a container -->
                     <div class="swiper-pagination-container">
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
@@ -180,6 +218,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
                 <h3>The Threepenny Opera</h3>
                 <div class="buttons">
@@ -189,7 +228,7 @@
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I projection designed the play <em>The Threepenny Opera</em> by Bertolt Brecht and directed by Annie Torsiglieri. I designed a live projection system, where the actors would storm in, bring in 1 7.5K laser projector on a rolling cart, and film the scene with a camcorder. The video feed was displayed live as a newscast. I used Adobe After Effects, Adobe Photoshop, and QLab to design the projections.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../projections-video-images/Threepenny/Threepenny Opera Image 1.jpg" alt="Threepenny Opera Image 1"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Threepenny/Threepenny Opera Image 2.jpg" alt="Threepenny Opera Image 2"></div>
@@ -198,7 +237,6 @@
                         <div class="swiper-slide"><img src="../projections-video-images/Threepenny/Threepenny Opera Image 5.jpg" alt="Threepenny Opera Image 5"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Threepenny/Threepenny Opera Image 6.jpg" alt="Threepenny Opera Image 6"></div>
                     </div>
-                    <!-- Add Pagination and Navigation inside a container -->
                     <div class="swiper-pagination-container">
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
@@ -206,7 +244,8 @@
                     </div>
                 </div>
             </div>
-                <div class="production">
+
+            <div class="production">
                 <h3>Kinetic Lab: Moonlight Symphony</h3>
                 <div class="buttons">
                     <a href="https://youtu.be/_uUftwqImxw" target="_blank" rel="noopener"><button>Full Video</button></a>
@@ -214,7 +253,7 @@
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I projection designed "Moonlight Symphony", a Sailor Moon-inspired dance choreographed by Milana Beck for the Kinetic Lab concert directed by Christina McCarthy. I used Adobe After Effects, p5.js, Three.js, and QLab to design the projections and implemented them using two stacked 10K projectors.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../projections-video-images/Moonlight Symphony/Moonlight Symphony Image 3.JPG" alt="Moonlight Symphony Image 3"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Moonlight Symphony/Moonlight Symphony Image 4.JPG" alt="Moonlight Symphony Image 4"></div>
@@ -234,7 +273,6 @@
                         <div class="swiper-slide"><img src="../projections-video-images/Moonlight Symphony/Moonlight Symphony Image 1.JPG" alt="Moonlight Symphony Image 1"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Moonlight Symphony/Moonlight Symphony Image 2.JPG" alt="Moonlight Symphony Image 2"></div>
                     </div>
-                    <!-- Add Pagination and Navigation inside a container -->
                     <div class="swiper-pagination-container">
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
@@ -242,9 +280,8 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
-                <p></p>
-                <p></p>
                 <h3>Indecent</h3>
                 <div class="buttons">
                     <a href="../projections-video-images/Indecent/Indecent Projector Plot.pdf" target="_blank"><button>Projector Plot</button></a>
@@ -253,7 +290,7 @@
                 <div class="swiper-container">
                     <p style="text-align: left; font-size: 16px;">
                         I assistant projection designed the play <em>Indecent</em> by Paula Vogel which was directed by Sara Rademacher and projection designed by Elijah Frankle. I used Adobe After Effects and QLab to design the projections and implemented them with four 7.5K laser projectors — two on house left and two on house right.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../projections-video-images/Indecent/Indecent Photo 1.jpg" alt="Indecent Image 1"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Indecent/Indecent Photo 11.jpg" alt="Indecent Image 11"></div>
@@ -267,7 +304,6 @@
                         <div class="swiper-slide"><img src="../projections-video-images/Indecent/Indecent Photo 3.jpg" alt="Indecent Image 3"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Indecent/Indecent Photo 4.jpg" alt="Indecent Image 4"></div>
                     </div>
-                    <!-- Add Pagination and Navigation inside a container -->
                     <div class="swiper-pagination-container">
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
@@ -275,9 +311,8 @@
                     </div>
                 </div>
             </div>
+
             <div class="production">
-                <p></p>
-                <p></p>
                 <h3>Celestial Existence</h3>
                 <div class="buttons">
                     <a href="https://miro.com/app/board/uXjVMOtOI6c=/" target="_blank" rel="noopener"><button>Concept</button></a>
@@ -288,7 +323,7 @@
                     <p style="text-align: left; font-size: 16px;">
                         I designed the short film "Celestial Existence" made of generative visuals surrounding the concept that progress arises from consistent imagination, transition, and evolution, and introspection is the heart of creativity.
                         I used TouchDesigner and p5.js to design the media, and I used Blender to edit the film and the music.
-                    </p>            
+                    </p>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="../projections-video-images/Celestial Existence/Celestial Existence Image 1.png" alt="Celestial Existence Image 1"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Celestial Existence/Celestial Existence Image 2.png" alt="Celestial Existence Image 2"></div>
@@ -299,7 +334,6 @@
                         <div class="swiper-slide"><img src="../projections-video-images/Celestial Existence/Celestial Existence Image 7.png" alt="Celestial Existence Image 7"></div>
                         <div class="swiper-slide"><img src="../projections-video-images/Celestial Existence/Celestial Existence Image 8.png" alt="Celestial Existence Image 8"></div>
                     </div>
-                    <!-- Add Pagination and Navigation inside a container -->
                     <div class="swiper-pagination-container">
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
@@ -307,6 +341,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -329,31 +364,32 @@
 
         // Toggle menu visibility on click for mobile devices
         function toggleMenu(menuId, toggleId) {
-                const menu = document.getElementById(menuId);
-                const toggle = document.getElementById(toggleId);
-                toggle.addEventListener('click', function() {
-                    menu.classList.toggle('show');
-                });
+            const menu = document.getElementById(menuId);
+            const toggle = document.getElementById(toggleId);
+            if (!menu || !toggle) return;
 
-                toggle.addEventListener('mouseenter', function() {
-                    menu.classList.add('show');
-                });
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
 
-                toggle.addEventListener('mouseleave', function() {
-                    menu.classList.remove('show');
-                });
+            toggle.addEventListener('mouseenter', function() {
+                menu.classList.add('show');
+            });
 
-                menu.addEventListener('mouseenter', function() {
-                    menu.classList.add('show');
-                });
+            toggle.addEventListener('mouseleave', function() {
+                menu.classList.remove('show');
+            });
 
-                menu.addEventListener('mouseleave', function() {
-                    menu.classList.remove('show');
-                });
-            }
-            
-            toggleMenu('dataScienceMenu', 'dataScienceToggle');
-            toggleMenu('designMenu', 'designToggle');
+            menu.addEventListener('mouseenter', function() {
+                menu.classList.add('show');
+            });
+
+            menu.addEventListener('mouseleave', function() {
+                menu.classList.remove('show');
+            });
+        }
+        toggleMenu('dataScienceMenu', 'dataScienceToggle');
+        toggleMenu('designMenu', 'designToggle');
     </script>
 </body>
 </html>
