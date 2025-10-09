@@ -92,42 +92,39 @@
         position:absolute;
         left:50%; transform:translateX(-50%);
         text-align:center;
-        font-size:1.6rem;
+        font-size:1.6rem;   /* larger name on mobile */
         line-height:1.2;
       }
 
-      /* semi-transparent nav overlay */
+      /* === OPAQUE dropdown menu (no transparency), auto height so all items show === */
       nav{
-        position: fixed;
-        inset: calc(env(safe-area-inset-top) + var(--headerH)) 0 0 0;
+        position: absolute;           /* sits right below header-inner */
+        top: 100%; left: 0; right: 0; /* full width under header */
         display:none;
-        flex-direction: column; gap: 2px;
-        padding: 12px 14px 18px;
-        background: rgba(26,26,26,0.84);
-        backdrop-filter: blur(8px) saturate(1.1);
-        -webkit-backdrop-filter: blur(8px) saturate(1.1);
+        flex-direction: column; gap: 0;
+        padding: 10px 12px 12px;
+        background: var(--panel);     /* opaque */
         border-top: 1px solid rgba(255,255,255,.08);
         z-index: 2000;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        /* no fixed bottom/inset, no overflow scroll -> all items visible */
       }
       .menu-toggle:checked ~ nav{ display:flex; }
 
       nav a{
-        padding: 14px 10px;
-        font-size: 1.02rem;
-        border-radius: 10px;
+        padding: 12px 10px;           /* comfy but compact so everything fits */
+        font-size: 1rem;
+        border-radius: 8px;
       }
       nav a:hover{ background: rgba(255,255,255,.10); }
 
-      /* Adjust portfolio typography and spacing */
+      /* Mobile typography and spacing tweaks for the hero */
       .main-content h2{
-        font-size: 1.9rem;
-        margin: 10px 0 4px;
+        font-size: 1.6rem;            /* smaller title on phones */
+        margin: 6px 0 2px;            /* tighter to kill the extra space */
       }
       .subtitle{
-        margin: 0 0 14px;
-        font-size: .98rem;
+        margin: 0 0 10px;             /* tighter under the title */
+        font-size: .96rem;
       }
     }
 
@@ -145,7 +142,7 @@
   <!-- Header -->
   <header>
     <div class="header-inner">
-      <a class="brand" href="index.html">Siddharth Chattoraj</a>
+      <a class="brand" href="index">Siddharth Chattoraj</a>
       <div class="spacer"></div>
 
       <!-- Mobile toggle -->
@@ -162,6 +159,7 @@
       </nav>
     </div>
   </header>
+
 <!-- keep your <head> and header/nav as-is; replace the <section> with this -->
 <section>
   <style>
