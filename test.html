@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Siddharth Chattoraj: Projections Design</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpeg" href="images/your_photo.jpg" />
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:#bfbfbf;
+      --tileShadow: 0 0 15px rgba(255,255,255,0.08);
+      --tileBorder: 1px solid rgba(255,255,255,0.08);
+      --overlayBg: rgba(0,0,0,0.45);
+    }
+    html, body { background:#000; color:#fff; margin:0; padding:0; }
+    header h1 { font-size:2rem; font-weight:700; color:var(--fg); }
+
+    section {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px 64px;
+    }
+
+    .main-content h2{
+      font-size:2.5rem;
+      text-align:center;
+      margin: 8px 0 6px;
+    }
+    .subtitle {
+      text-align:center;
+      color:var(--muted);
+      margin: 0 0 24px;
+      font-size:0.95rem;
+      letter-spacing:.3px;
+    }
+
+    /* GRID */
+    .show-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+      gap:18px;
+    }
+
+    .tile{
+      background:#111;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow: var(--tileShadow);
+      border: var(--tileBorder);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .tile-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* Square image area */
+    .tile-media{
+      position:relative;
+      width:100%;
+      aspect-ratio:1/1;             /* <- perfect square */
+      overflow:hidden;
+      background:#0a0a0a;
+    }
+    .tile-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition: transform .35s ease, filter .35s ease, opacity .35s ease;
+    }
+    /* Hover overlay with show title only */
+    .tile-media .overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:10px;
+      opacity:0;
+      background:var(--overlayBg);
+      transition: opacity .25s ease;
+      font-weight:700;
+      letter-spacing:.3px;
+    }
+    .tile-media .overlay span{
+      font-size:1.05rem;
+    }
+    .tile:hover .tile-media img{
+      filter:brightness(.6);
+      transform: scale(1.03);
+    }
+    .tile:hover .tile-media .overlay{ opacity:1; }
+
+    /* Caption (show — role) */
+    .tile-caption{
+      border-top: var(--tileBorder);
+      padding:12px 12px 14px;
+      font-size:.95rem;
+      line-height:1.3;
+      color:var(--fg);
+    }
+    .tile-caption .role{
+      display:block;
+      color:var(--muted);
+      font-size:.88rem;
+      margin-top:2px;
+    }
+
+    /* Mobile niceties */
+    @media (max-width: 590px){
+      header h1{ font-size:1.5rem; }
+      .main-content h2{ font-size:2rem; }
+      .show-grid{ gap:14px; }
+      .tile-caption{ font-size:.92rem; }
+      .tile-caption .role{ font-size:.84rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Siddharth Chattoraj</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lighting.html">Lighting Design</a>
+      <a href="projections.html">Projection Design</a>
+      <a href="fabrication.html">Fabrication Design</a>
+      <a href="contact.html">Contact</a>
+      <a href="test.html">Test</a>
+    </nav>
+  </header>
+
+<!-- keep your <head> and header/nav as-is; replace the <section> with this -->
+<section>
+  <style>
+    :root{
+      --bg:#000; --fg:#fff; --muted:#bfbfbf; --panel:#1a1a1a;
+    }
+    html,body{background:#000;color:#fff;}
+    section{max-width:1280px;margin:0 auto;padding:0 16px 64px;background:var(--bg);}
+    .main-content h2{font-size:2.5rem;text-align:center;margin:8px 0 6px;color:var(--fg);}
+    .subtitle{ text-align:center;color:var(--muted);margin:0 0 24px;font-size:.95rem;}
+
+    /* 3-up, larger tiles */
+    .show-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(320px,1fr));
+      gap:24px;
+    }
+    @media (max-width:1100px){ .show-grid{ grid-template-columns: repeat(2, minmax(300px,1fr)); } }
+    @media (max-width:590px){ .show-grid{ grid-template-columns:1fr; gap:16px; } }
+
+    .tile{
+      background:var(--bg);
+      border:1px solid rgba(255,255,255,0.1);
+      overflow:hidden; display:flex; flex-direction:column;
+      border-radius:0 !important;
+      box-shadow:none; /* prevents any vignette-looking edges */
+    }
+    .tile-link{ display:block; text-decoration:none; color:inherit; }
+    .tile-media{
+      position:relative;width:100%;aspect-ratio:16/10;background:#000;overflow:hidden;
+      border-radius:0 !important; clip-path:none !important;
+      -webkit-mask:none !important; mask:none !important;
+    }
+    .tile-media img{
+      width:100%;height:100%;object-fit:cover;object-position:center;display:block;
+      transition:transform .35s ease, filter .35s ease, opacity .35s ease;
+      border-radius:0 !important; clip-path:none !important;
+      -webkit-mask-image:none !important; mask-image:none !important;
+      box-shadow:none !important;
+    }
+    .overlay{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+      background:rgba(0,0,0,.45);opacity:0;transition:opacity .25s ease;
+      font-weight:700;letter-spacing:.3px;color:#fff;text-align:center;padding:10px;
+    }
+    .tile:hover .tile-media img{ filter:brightness(.6); transform:scale(1.03); }
+    .tile:hover .overlay{ opacity:1; }
+
+    .tile-caption{
+      background:var(--panel);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:14px 14px 16px;
+      font-size:1rem; line-height:1.3; color:var(--fg);
+    }
+    .tile-caption .role{ display:block;color:var(--muted);font-size:.9rem;margin-top:2px; }
+  </style>
+
+  <div class="main-content">
+    <h2>Design Portfolio</h2>
+    <p class="subtitle">Click each image to learn more.</p>
+
+    <div class="show-grid">
+
+      <!-- TrollFest — Assistant Projection Designer -->
+      <article class="tile">
+        <a class="tile-link" href="../design/trollfest.html">
+          <div class="tile-media">
+            <img src="../projections-video-images/Trollfest/Trollfest Image 1.png" alt="TrollFest">
+            <div class="overlay"><span>TrollFest</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/trollfest.html">
+          <div class="tile-caption">
+            TrollFest
+            <span class="role">Assistant Projection Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- UCSB Dance Company — Lighting & Projection (designer roles only) -->
+      <article class="tile">
+        <a class="tile-link" href="../design/ucsb-dance-company-european-tour.html">
+          <div class="tile-media">
+            <img src="../lighting-images/UCSB Dance Company Lighting/UCSB DC Lighting Image 1.jpg" alt="UCSB Dance Company">
+            <div class="overlay"><span>UCSB Dance Company</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/ucsb-dance-company-european-tour.html">
+          <div class="tile-caption">
+            UCSB Dance Company
+            <span class="role">Lighting Designer, Projection Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Afterlight — Lighting Designer -->
+      <article class="tile">
+        <a class="tile-link" href="../design/afterlight.html">
+          <div class="tile-media">
+            <img src="../lighting-images/Afterlight/Afterlight Image 1.jpg" alt="Afterlight">
+            <div class="overlay"><span>Afterlight</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/afterlight.html">
+          <div class="tile-caption">
+            Afterlight
+            <span class="role">Lighting Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Refractions — Projection Designer (SM removed) -->
+      <article class="tile">
+        <a class="tile-link" href="../design/refractions-voices-in-light-and-dark.html">
+          <div class="tile-media">
+            <img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 2.jpg" alt="Refractions: Voices in Light & Dark">
+            <div class="overlay"><span>Refractions: Voices in Light &amp; Dark</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/refractions-voices-in-light-and-dark.html">
+          <div class="tile-caption">
+            Refractions: Voices in Light &amp; Dark
+            <span class="role">Projection Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Strange Birds — Assistant Lighting Designer -->
+      <article class="tile">
+        <a class="tile-link" href="../design/strange-birds.html">
+          <div class="tile-media">
+            <img src="../lighting-images/Strange Birds/Strange Birds Image 2.jpg" alt="Strange Birds">
+            <div class="overlay"><span>Strange Birds</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/strange-birds.html">
+          <div class="tile-caption">
+            Strange Birds
+            <span class="role">Assistant Lighting Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- UCSB Dance Company (Projections) — Projection Designer (second D.C. tile) -->
+      <article class="tile">
+        <a class="tile-link" href="../design/ucsb-dance-company-projections.html">
+          <div class="tile-media">
+            <img src="../projections-video-images/UCSB Dance Company Projections/UCSB DC Projections Image 1.png" alt="UCSB Dance Company Projections">
+            <div class="overlay"><span>UCSB Dance Company</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/ucsb-dance-company-projections.html">
+          <div class="tile-caption">
+            UCSB Dance Company
+            <span class="role">Projection Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- The Threepenny Opera — Projection Designer -->
+      <article class="tile">
+        <a class="tile-link" href="../design/threepenny-opera.html">
+          <div class="tile-media">
+            <img src="../projections-video-images/Threepenny/Threepenny Opera Image 1.jpg" alt="The Threepenny Opera">
+            <div class="overlay"><span>The Threepenny Opera</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/threepenny-opera.html">
+          <div class="tile-caption">
+            The Threepenny Opera
+            <span class="role">Projection Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Kinetic Lab — Projection Designer -->
+      <article class="tile">
+        <a class="tile-link" href="../design/kinetic-lab.html">
+          <div class="tile-media">
+            <img src="../projections-video-images/Moonlight Symphony/Moonlight Symphony Image 3.JPG" alt="Kinetic Lab">
+            <div class="overlay"><span>Kinetic Lab</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/kinetic-lab.html">
+          <div class="tile-caption">
+            Kinetic Lab
+            <span class="role">Projection Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Indecent — Assistant Projection Designer -->
+      <article class="tile">
+        <a class="tile-link" href="../design/indecent.html">
+          <div class="tile-media">
+            <img src="../projections-video-images/Indecent/Indecent Photo 1.jpg" alt="Indecent">
+            <div class="overlay"><span>Indecent</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/indecent.html">
+          <div class="tile-caption">
+            Indecent
+            <span class="role">Assistant Projection Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Celestial Existence — Media Designer -->
+      <article class="tile">
+        <a class="tile-link" href="../design/celestial-existence.html">
+          <div class="tile-media">
+            <img src="../projections-video-images/Celestial Existence/Celestial Existence Image 1.png" alt="Celestial Existence">
+            <div class="overlay"><span>Celestial Existence</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../design/celestial-existence.html">
+          <div class="tile-caption">
+            Celestial Existence
+            <span class="role">Media / Film Designer</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+</html>
