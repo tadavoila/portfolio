@@ -68,14 +68,12 @@
 
     /* ===== Mobile Header Fixes ===== */
     @media (max-width: 820px){
-      /* show hamburger */
       .hamburger{
         display:flex;
         margin-left:auto;
         position:relative; z-index:3;
       }
 
-      /* keep checkbox accessible (iOS fix) */
       .menu-toggle{
         position:absolute !important;
         width:1px; height:1px;
@@ -86,44 +84,53 @@
 
       .spacer{ display:none; }
 
-      /* center brand + enlarge */
       .brand{
         color:var(--fg);
         position:absolute;
         left:50%; transform:translateX(-50%);
         text-align:center;
-        font-size:1.6rem;   /* larger name on mobile */
+        font-size:1.6rem;
         line-height:1.2;
       }
 
-      /* === OPAQUE dropdown menu (no transparency), auto height so all items show === */
+      /* === Right-side mobile menu (75% opacity) === */
+      .header-inner{ position: relative; }
       nav{
-        position: absolute;           /* sits right below header-inner */
-        top: 100%; left: 0; right: 0; /* full width under header */
-        display:none;
-        flex-direction: column; gap: 0;
-        padding: 10px 12px 12px;
-        background: var(--panel);     /* opaque */
-        border-top: 1px solid rgba(255,255,255,.08);
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 12px;
+        left: auto;
+        width: min(78vw, 340px);
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        padding: 10px 10px;
+
+        background: rgba(26,26,26,0.75); /* semi-opaque */
+        backdrop-filter: blur(6px) saturate(1.1);
+        -webkit-backdrop-filter: blur(6px) saturate(1.1);
+
+        border: 1px solid rgba(255,255,255,.10);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0,0,0,.45);
         z-index: 2000;
-        /* no fixed bottom/inset, no overflow scroll -> all items visible */
+        overflow: visible;
       }
       .menu-toggle:checked ~ nav{ display:flex; }
 
       nav a{
-        padding: 12px 10px;           /* comfy but compact so everything fits */
+        padding: 12px 12px;
         font-size: 1rem;
-        border-radius: 8px;
+        border-radius: 10px;
       }
       nav a:hover{ background: rgba(255,255,255,.10); }
 
-      /* Mobile typography and spacing tweaks for the hero */
       .main-content h2{
-        font-size: 1.6rem;            /* smaller title on phones */
-        margin: 6px 0 2px;            /* tighter to kill the extra space */
+        font-size: 1.6rem;
+        margin: 6px 0 2px;
       }
       .subtitle{
-        margin: 0 0 10px;             /* tighter under the title */
+        margin: 0 0 10px;
         font-size: .96rem;
       }
     }
