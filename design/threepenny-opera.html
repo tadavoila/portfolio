@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Threepenny Opera · Siddharth Chattoraj</title>
+
+  <!-- global + page header styles -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/page-design.css" />
+  <link rel="icon" type="image/jpeg" href="images/your_photo.jpg" />
+</head>
+
+<body>
+  <!-- Header (same component) -->
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index">Siddharth Chattoraj</a>
+      <div class="spacer"></div>
+
+      <input id="menu-toggle" class="menu-toggle" type="checkbox" aria-label="Toggle navigation">
+      <label class="hamburger" for="menu-toggle"><span></span></label>
+
+      <nav>
+        <a href="index">Home</a>
+        <a href="lighting">Lighting Design</a>
+        <a href="projections" aria-current="page">Projection Design</a>
+        <a href="fabrication">Fabrication Design</a>
+        <a href="contact">Contact</a>
+        <a href="design" class="highlighted">Design</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page body -->
+  <section>
+    <style>
+      :root{ --bg:#000; --fg:#fff; --muted:#bfbfbf; --panel:#1a1a1a; }
+      section{ max-width: 1400px; margin: 0 auto; padding: 0 16px 72px; background: var(--bg); }
+
+      .hero{ text-align:center; margin: 14px 0 8px; }
+      .hero h2{
+        font-size: 2.2rem; margin: 8px 0 4px; color: var(--fg);
+        letter-spacing: .2px; font-weight: 800;
+      }
+      .subtitle{ color: var(--muted); margin: 0 0 6px; font-size: .98rem; }
+
+      /* role line — same color/size as subtitle, italicized, directly under it */
+      .role{
+        color: var(--muted);
+        font-size: .98rem;
+        font-style: italic;
+        margin: 2px 0 14px;  /* tight spacing under subtitle */
+      }
+
+      /* description */
+      .desc{
+        max-width: 1000px; margin: 0 auto 22px; color: var(--muted);
+        line-height:1.6; font-size: 1rem; text-align:left;
+      }
+
+      /* buttons row — hover becomes lighter than header gray */
+      .buttons{
+        display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+        margin: 10px 0 26px;
+      }
+      .buttons a{ text-decoration:none; }
+      .buttons button{
+        padding:.7rem 1.2rem;
+        background:#111;            /* darker than header gray */
+        color:#fff;
+        border:1.5px solid #fff;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:.98rem;
+        transition: background .25s ease, transform .25s ease, border-color .25s ease;
+      }
+      /* hover triggers on both the button and the anchor wrapper */
+      .buttons button:hover,
+      .buttons a:hover button,
+      .buttons button:focus-visible{
+        background:#333;            /* lighter than var(--panel) #1a1a1a */
+        border-color: rgba(255,255,255,0.85);
+        transform: translateY(-1px);
+        outline: none;
+      }
+
+      /* image grid */
+      .show-grid{
+        display:grid; gap:18px;
+        grid-template-columns: repeat(3, minmax(360px,1fr));
+      }
+      @media (max-width:1200px){ .show-grid{ grid-template-columns: repeat(2, minmax(320px,1fr)); } }
+      @media (max-width:590px){ .show-grid{ grid-template-columns:1fr; gap:14px; } }
+
+      .tile{
+        border:1px solid rgba(255,255,255,.1);
+        overflow:hidden; display:block;
+      }
+      .tile-media{
+        position:relative; width:100%; aspect-ratio:16/9;
+        background:#000; overflow:hidden;
+      }
+      .tile-media img{
+        width:100%; height:100%; object-fit:cover;
+        transition: transform .35s ease, filter .35s ease;
+      }
+      .tile:hover .tile-media img{ filter:brightness(.9); transform: scale(1.02); }
+
+      /* credits */
+      .credits{
+        margin-top: 32px; border-top:1px solid rgba(255,255,255,.1); padding-top:18px;
+        max-width: 900px; margin-left:auto; margin-right:auto;
+      }
+      .credits h3{
+        margin:0 0 12px; font-size:1.2rem; text-align:center; color:var(--fg);
+      }
+      .credits dl{
+        display:grid; grid-template-columns: 1fr 1fr; gap:10px 22px;
+        margin:0; color: var(--muted); font-size:1rem; line-height:1.55;
+      }
+      .credits dt{ text-align:right; color:#e6e6e6; font-weight:600; }
+      .credits dd{ margin:0; }
+
+      @media (max-width:700px){
+        .hero h2{ font-size:1.6rem; margin:6px 0 2px; }
+        .subtitle{ margin:0 0 8px; font-size:.96rem; }
+        .role{ font-size:.96rem; margin-bottom:12px; }
+        .desc{ font-size:.98rem; }
+        .credits dl{ grid-template-columns:1fr; }
+        .credits dt{ text-align:left; }
+      }
+    </style>
+
+    <div class="hero">
+      <h2>The Threepenny Opera</h2>
+      <p class="subtitle">UCSB Division of Theater · Performing Arts Theater · Santa Barbara, CA</p>
+      <p class="role">Projection Design</p>
+
+      <div class="desc">
+        I projection designed the play <em>The Threepenny Opera</em> by Bertolt Brecht and directed by Annie Torsiglieri. I designed a live projection system where the actors would storm in, roll in a 7.5K laser projector on a cart, and film the scene with a camcorder. The video feed was displayed live as a newscast. I used Adobe After Effects, Adobe Photoshop, and QLab to design the projections.
+      </div>
+
+      <div class="buttons">
+        <a href="../projections-video-images/Threepenny/Threepenny Projection Research.pdf" target="_blank" rel="noopener">
+          <button>Research</button>
+        </a>
+        <a href="../projections-video-images/Threepenny/Threepenny Projector Cart Rendering.png" target="_blank" rel="noopener">
+          <button>Rendering</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="show-grid">
+      <a class="tile" href="../projections-video-images/Threepenny/Threepenny Opera Image 1.jpg" target="_blank" rel="noopener">
+        <div class="tile-media">
+          <img src="../projections-video-images/Threepenny/Threepenny Opera Image 1.jpg" alt="The Threepenny Opera Image 1">
+        </div>
+      </a>
+
+      <a class="tile" href="../projections-video-images/Threepenny/Threepenny Opera Image 2.jpg" target="_blank" rel="noopener">
+        <div class="tile-media">
+          <img src="../projections-video-images/Threepenny/Threepenny Opera Image 2.jpg" alt="The Threepenny Opera Image 2">
+        </div>
+      </a>
+
+      <a class="tile" href="../projections-video-images/Threepenny/Threepenny Opera Image 3.jpg" target="_blank" rel="noopener">
+        <div class="tile-media">
+          <img src="../projections-video-images/Threepenny/Threepenny Opera Image 3.jpg" alt="The Threepenny Opera Image 3">
+        </div>
+      </a>
+
+      <a class="tile" href="../projections-video-images/Threepenny/Threepenny Opera Image 4.jpg" target="_blank" rel="noopener">
+        <div class="tile-media">
+          <img src="../projections-video-images/Threepenny/Threepenny Opera Image 4.jpg" alt="The Threepenny Opera Image 4">
+        </div>
+      </a>
+
+      <a class="tile" href="../projections-video-images/Threepenny/Threepenny Opera Image 5.jpg" target="_blank" rel="noopener">
+        <div class="tile-media">
+          <img src="../projections-video-images/Threepenny/Threepenny Opera Image 5.jpg" alt="The Threepenny Opera Image 5">
+        </div>
+      </a>
+
+      <a class="tile" href="../projections-video-images/Threepenny/Threepenny Opera Image 6.jpg" target="_blank" rel="noopener">
+        <div class="tile-media">
+          <img src="../projections-video-images/Threepenny/Threepenny Opera Image 6.jpg" alt="The Threepenny Opera Image 6">
+        </div>
+      </a>
+    </div>
+
+    <div class="credits">
+      <h3>Production Credits</h3>
+      <dl>
+        <dt>Director</dt><dd>Annie Torsiglieri</dd>
+        <dt>Scenic Designer</dt><dd>Fred Kinney</dd>
+        <dt>Lighting Designer</dt><dd>Darren McCroom</dd>
+        <dt>Costume Designer</dt><dd>Alexa Behm</dd>
+        <dt>Projection Designer</dt><dd>Siddharth Chattoraj</dd>
+        <dt>Stage Manager</dt><dd>Scarleth Arias</dd>
+      </dl>
+    </div>
+  </section>
+</body>
+</html>
