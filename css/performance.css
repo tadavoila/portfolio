@@ -1,0 +1,149 @@
+/* Shared styles for performance (production) pages.
+   Depends on global tokens from style.css / page-design.css:
+   --bg, --fg, --muted, --panel
+*/
+
+/* Page container */
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px 72px;
+  background: var(--bg);
+}
+
+/* Hero header */
+.hero {
+  text-align: center;
+  margin: 14px 0 8px;
+}
+.hero h2 {
+  font-size: 2.2rem;
+  margin: 8px 0 4px;
+  color: var(--fg);
+  letter-spacing: .2px;
+  font-weight: 800;
+}
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 6px;
+  font-size: .98rem;
+}
+
+/* Role line — same style as subtitle, italic */
+.role {
+  color: var(--muted);
+  font-size: .98rem;
+  font-style: italic;
+  margin: 2px 0 14px; /* tight spacing under subtitle */
+}
+
+/* Description */
+.desc {
+  max-width: 1000px;
+  margin: 0 auto 22px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0 26px;
+}
+.buttons a {
+  text-decoration: none;
+}
+.buttons button {
+  padding: .7rem 1.2rem;
+  background: #111;           /* darker than header gray */
+  color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: .98rem;
+  transition: background .25s ease, transform .25s ease, border-color .25s ease;
+}
+/* Hover triggers whether over <a> or <button> */
+.buttons button:hover,
+.buttons a:hover button,
+.buttons button:focus-visible {
+  background: #333;           /* lighter than var(--panel) #1a1a1a */
+  border-color: rgba(255,255,255,0.85);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Image grid (same look & breakpoints as portfolio) */
+.show-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(360px, 1fr));
+}
+@media (max-width: 1200px) {
+  .show-grid { grid-template-columns: repeat(2, minmax(320px, 1fr)); }
+}
+@media (max-width: 590px) {
+  .show-grid { grid-template-columns: 1fr; gap: 14px; }
+}
+
+.tile {
+  border: 1px solid rgba(255,255,255,.1);
+  overflow: hidden;
+  display: block;
+}
+.tile-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+.tile-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease, filter .35s ease;
+}
+.tile:hover .tile-media img { filter: brightness(.9); transform: scale(1.02); }
+
+/* Credits */
+.credits {
+  margin-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 18px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.credits h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--fg);
+}
+.credits dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 22px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.credits dt { text-align: right; color: #e6e6e6; font-weight: 600; }
+.credits dd { margin: 0; }
+
+/* Mobile tweaks */
+@media (max-width: 700px) {
+  .hero h2 { font-size: 1.6rem; margin: 6px 0 2px; }
+  .subtitle { margin: 0 0 8px; font-size: .96rem; }
+  .role { font-size: .96rem; margin-bottom: 12px; }
+  .desc { font-size: .98rem; }
+  .credits dl { grid-template-columns: 1fr; }
+  .credits dt { text-align: left; }
+}
