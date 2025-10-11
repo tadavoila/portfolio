@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image
 
 # --- CONFIG ---
-source_dir = Path("lighting-images")
+source_dir = Path("fabrication-painting-images")
 target_dir = Path("design-webp")
 quality = 80
 max_width = 1920  # resize any image wider than this
