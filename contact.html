@@ -47,14 +47,14 @@
       box-shadow: 0 0 30px rgba(0,0,0,.4);
     }
 
+    /* Heading: now solid white */
     h2 {
       margin: 0 0 8px;
       font-size: 2rem;
       font-weight: 800;
-      background: linear-gradient(to right, #00c2ff 0%, #2ee6b8 100%); /* end = teal */
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: var(--fg) !important; /* solid white */
+      letter-spacing: .2px;
+      line-height: 1.15;
     }
 
     p { color: var(--muted); }
@@ -221,32 +221,31 @@
   const clamp = (v,min,max)=> Math.max(min, Math.min(max, v));
   const len   = (x,y)=> Math.hypot(x,y) || 1e-6;
 
-
-    // Subtle config — stronger near effect + slightly bigger bump
-    const CFG = {
+  // Subtle config — stronger near effect + slightly bigger bump
+  const CFG = {
     count: 520,
     minR: 1.2,
     maxR: 2.6,
 
-    // Keep the slightly-faster idle from before
+    // Slightly-faster idle
     maxSpeed: 0.30,        // CSS px/frame
 
-    // Push farther/stronger near the cursor
-    repelNear: 260,        // was 220
-    repelFar:  500,        // unchanged
-    steerNear: 0.05,      // was 0.020 (a bit more steer)
-    steerFar:  0.006,      // unchanged
+    // Field size & steering (near pushes more)
+    repelNear: 260,
+    repelFar:  500,
+    steerNear: 0.05,
+    steerFar:  0.006,
 
-    // Stronger, smoother bump when close
-    bumpMax:   0.22,       // was 0.18
-    bumpEase:  0.30,       // was 0.26
-    bumpMouseSpeedScale: 0.0018, // unchanged
+    // Speed bump near mouse (and scaled by mouse speed)
+    bumpMax:   0.22,
+    bumpEase:  0.30,
+    bumpMouseSpeedScale: 0.0018,
 
     // Visuals
     coreAlpha: 0.45,
     glowAlpha: 0.28,
     hitTintDecay: 0.92
-    };
+  };
 
   function resizeCanvas() {
     DPR = Math.min(2, window.devicePixelRatio || 1);
@@ -342,25 +341,23 @@
 
       if (d2 < RF*RF){
         // Preferred steering direction = mouse-move direction if available,
-        // otherwise fall back to gentle "away from mouse" (to avoid clumping).
+        // otherwise fall back to gentle "away from mouse".
         let prefX = mDirX, prefY = mDirY;
-        if (!hasMouseDir) { // fallback: slight repel
-          prefX = dx / d; prefY = dy / d;
-        }
+        if (!hasMouseDir) { prefX = dx / d; prefY = dy / d; }
 
         // Far influence (gentle, wide)
-        const farInfluence = clamp(1 - d / RF, 0, 1);
+        const farInfluence = Math.max(0, 1 - d / RF);
         const farSteer     = farInfluence * (CFG.steerFar * 16);
 
-        // Near influence (stronger, inner circle)
+        // Near influence (stronger)
         let nearSteer = 0, nearInfluence = 0;
         if (d2 < RN*RN){
-          nearInfluence = clamp(1 - d / RN, 0, 1);
+          nearInfluence = Math.max(0, 1 - d / RN);
           nearSteer     = nearInfluence * (CFG.steerNear * 16);
 
-          // Speed bump scales both by closeness and mouse speed
-          const mouseBoost = clamp(1 + mouse.speed * CFG.bumpMouseSpeedScale, 1, 1 + CFG.bumpMax);
-          targetScale = clamp(1 + CFG.bumpMax * nearInfluence, 1, 1 + CFG.bumpMax) * mouseBoost;
+          // Speed bump scales by closeness + mouse speed
+          const mouseBoost = Math.min(1 + mouse.speed * CFG.bumpMouseSpeedScale, 1 + CFG.bumpMax);
+          targetScale = Math.min(1 + CFG.bumpMax * nearInfluence, 1 + CFG.bumpMax) * mouseBoost;
 
           // More teal when being affected
           p.hitTint = Math.min(1, p.hitTint + 0.10);
@@ -368,8 +365,8 @@
           p.hitTint *= CFG.hitTintDecay;
         }
 
-        // Combine far + near steering toward preferred direction
-        const steerTotal = clamp(farSteer + nearSteer, 0, 1);
+        // Combine far + near steering toward preferred direction (direction-only)
+        const steerTotal = Math.max(0, Math.min(1, farSteer + nearSteer));
         const ndx = (1 - steerTotal) * dirX + steerTotal * prefX;
         const ndy = (1 - steerTotal) * dirY + steerTotal * prefY;
         const nLen = Math.max(1e-6, Math.hypot(ndx, ndy));
