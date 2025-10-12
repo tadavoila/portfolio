@@ -51,7 +51,7 @@
       margin: 0 0 8px;
       font-size: 2rem;
       font-weight: 800;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      background: linear-gradient(to right, #00c2ff 0%, #2ee6b8 100%); /* end = teal */
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -207,82 +207,230 @@
     </form>
   </section>
 
-  <script>
-    // === Dots: same structure/format as your original, just color/brightness changed ===
-    const canvas = document.getElementById('backgroundCanvas');
-    const ctx = canvas.getContext('2d');
-    let dots = [];
+<script>
+  // Dots: constant speed, blue–teal glow, pushed in MOUSE DIRECTION (with gentle fallback repel)
+  const canvas = document.getElementById('backgroundCanvas');
+  const ctx = canvas.getContext('2d', { alpha: true });
 
-    function resizeCanvas() {
-      canvas.width = canvas.parentElement.clientWidth;
-      canvas.height = canvas.parentElement.clientHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+  let dots = [];
+  let w = 0, h = 0, DPR = Math.min(2, window.devicePixelRatio || 1);
+  const mouse = { x: -1e5, y: -1e5, vx: 0, vy: 0, speed: 0 };
+  let raf, lastT = 0, lastMouseT = performance.now();
 
-    function createDots() {
-      dots = [];
-      for (let i = 0; i < 500; i++) {
-        // pick cyan or teal with slight transparency for a soft glow
-        const color = Math.random() < 0.5
-          ? 'rgba(0, 194, 255, 0.7)'   // cyan
-          : 'rgba(46, 230, 184, 0.6)'; // teal
+  const mix   = (a,b,t)=> a + (b-a)*t;
+  const clamp = (v,min,max)=> Math.max(min, Math.min(max, v));
+  const len   = (x,y)=> Math.hypot(x,y) || 1e-6;
 
-        dots.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() / 8 + 1,
-          dx: Math.random() - 0.5,
-          dy: Math.random() - 0.5,
-          color
-        });
-      }
-    }
 
-    function drawDots() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let dot of dots) {
-        ctx.beginPath();
-        ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2, false);
-        ctx.fillStyle = dot.color; // blue–teal instead of white
-        ctx.fill();
-        ctx.closePath();
-      }
-    }
+    // Subtle config — stronger near effect + slightly bigger bump
+    const CFG = {
+    count: 520,
+    minR: 1.2,
+    maxR: 2.6,
 
-    function updateDots() {
-      for (let dot of dots) {
-        dot.x += dot.dx;
-        dot.y += dot.dy;
-        if (dot.x < 0 || dot.x > canvas.width || dot.y < 0 || dot.y > canvas.height) {
-          dot.x = Math.random() * canvas.width;
-          dot.y = Math.random() * canvas.height;
-        }
-      }
-    }
+    // Keep the slightly-faster idle from before
+    maxSpeed: 0.30,        // CSS px/frame
 
-    function animate() {
-      drawDots();
-      updateDots();
-      requestAnimationFrame(animate);
-    }
+    // Push farther/stronger near the cursor
+    repelNear: 260,        // was 220
+    repelFar:  500,        // unchanged
+    steerNear: 0.05,      // was 0.020 (a bit more steer)
+    steerFar:  0.006,      // unchanged
 
-    // Hover responsiveness (same format)
-    canvas.addEventListener('mousemove', (e) => {
-      for (let dot of dots) {
-        const rect = canvas.getBoundingClientRect();
-        const dx = (e.clientX - rect.left) - dot.x;
-        const dy = (e.clientY - rect.top) - dot.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 100) {
-          dot.dx = dx / distance;
-          dot.dy = dy / distance;
-        }
-      }
+    // Stronger, smoother bump when close
+    bumpMax:   0.22,       // was 0.18
+    bumpEase:  0.30,       // was 0.26
+    bumpMouseSpeedScale: 0.0018, // unchanged
+
+    // Visuals
+    coreAlpha: 0.45,
+    glowAlpha: 0.28,
+    hitTintDecay: 0.92
+    };
+
+  function resizeCanvas() {
+    DPR = Math.min(2, window.devicePixelRatio || 1);
+    const cssW = innerWidth, cssH = innerHeight;
+    canvas.width  = Math.floor(cssW * DPR);
+    canvas.height = Math.floor(cssH * DPR);
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+    w = canvas.width; h = canvas.height;
+
+    const area = cssW * cssH;
+    const scaledCount = Math.min(CFG.count, Math.max(260, Math.floor(area / 3000)));
+    spawn(scaledCount);
+  }
+
+  function spawn(n){
+    dots = Array.from({length:n}, () => {
+      const rCss = mix(CFG.minR, CFG.maxR, Math.random());
+      const r = rCss * DPR;
+
+      const baseSpeed = CFG.maxSpeed * (0.85 + Math.random()*0.3) * DPR;
+      const ang = Math.random() * Math.PI * 2;
+      const vx = Math.cos(ang) * baseSpeed;
+      const vy = Math.sin(ang) * baseSpeed;
+
+      // cyan↔teal base color
+      const t = Math.random();
+      const c1 = { r: 0, g: 194, b: 255 };
+      const c2 = { r: 46, g: 230, b: 184 };
+      const base = {
+        r: Math.round(mix(c1.r, c2.r, t)),
+        g: Math.round(mix(c1.g, c2.g, t)),
+        b: Math.round(mix(c1.b, c2.b, t))
+      };
+
+      return {
+        x: Math.random()*w,
+        y: Math.random()*h,
+        vx, vy,
+        r,
+        baseSpeed,
+        baseColor: base,
+        hitTint: 0,
+        speedScale: 1
+      };
     });
+  }
 
-    createDots();
-    animate();
-  </script>
+  function drawDot(p){
+    const teal = { r:46, g:230, b:184 };
+    const rC = Math.round(mix(p.baseColor.r, teal.r, p.hitTint));
+    const gC = Math.round(mix(p.baseColor.g, teal.g, p.hitTint));
+    const bC = Math.round(mix(p.baseColor.b, teal.b, p.hitTint));
+
+    // core
+    ctx.fillStyle = `rgba(${rC},${gC},${bC},${CFG.coreAlpha})`;
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
+
+    // halo
+    const R = p.r * 3.2;
+    const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, R);
+    grad.addColorStop(0, `rgba(${rC},${gC},${bC},${CFG.glowAlpha})`);
+    grad.addColorStop(1, `rgba(${rC},${gC},${bC},0)`);
+    ctx.fillStyle = grad;
+    ctx.beginPath(); ctx.arc(p.x, p.y, R, 0, Math.PI*2); ctx.fill();
+  }
+
+  function step(t){
+    const dt = Math.min(32, (t - lastT) || 16);
+    lastT = t;
+
+    ctx.clearRect(0, 0, w, h);
+
+    const RN = CFG.repelNear * DPR;
+    const RF = CFG.repelFar  * DPR;
+
+    // Mouse direction (unit). If mouse is almost still, dir will be tiny.
+    const mLen = len(mouse.vx, mouse.vy);
+    const hasMouseDir = mLen > 0.02 * DPR; // threshold to consider "moving"
+    const mDirX = hasMouseDir ? mouse.vx / mLen : 0;
+    const mDirY = hasMouseDir ? mouse.vy / mLen : 0;
+
+    for(const p of dots){
+      // current direction (unit)
+      let spd = Math.max(1e-6, Math.hypot(p.vx, p.vy));
+      let dirX = p.vx / spd, dirY = p.vy / spd;
+
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const d2 = dx*dx + dy*dy;
+      const d  = Math.sqrt(d2) || 1;
+
+      let targetScale = 1;
+
+      if (d2 < RF*RF){
+        // Preferred steering direction = mouse-move direction if available,
+        // otherwise fall back to gentle "away from mouse" (to avoid clumping).
+        let prefX = mDirX, prefY = mDirY;
+        if (!hasMouseDir) { // fallback: slight repel
+          prefX = dx / d; prefY = dy / d;
+        }
+
+        // Far influence (gentle, wide)
+        const farInfluence = clamp(1 - d / RF, 0, 1);
+        const farSteer     = farInfluence * (CFG.steerFar * 16);
+
+        // Near influence (stronger, inner circle)
+        let nearSteer = 0, nearInfluence = 0;
+        if (d2 < RN*RN){
+          nearInfluence = clamp(1 - d / RN, 0, 1);
+          nearSteer     = nearInfluence * (CFG.steerNear * 16);
+
+          // Speed bump scales both by closeness and mouse speed
+          const mouseBoost = clamp(1 + mouse.speed * CFG.bumpMouseSpeedScale, 1, 1 + CFG.bumpMax);
+          targetScale = clamp(1 + CFG.bumpMax * nearInfluence, 1, 1 + CFG.bumpMax) * mouseBoost;
+
+          // More teal when being affected
+          p.hitTint = Math.min(1, p.hitTint + 0.10);
+        } else {
+          p.hitTint *= CFG.hitTintDecay;
+        }
+
+        // Combine far + near steering toward preferred direction
+        const steerTotal = clamp(farSteer + nearSteer, 0, 1);
+        const ndx = (1 - steerTotal) * dirX + steerTotal * prefX;
+        const ndy = (1 - steerTotal) * dirY + steerTotal * prefY;
+        const nLen = Math.max(1e-6, Math.hypot(ndx, ndy));
+        dirX = ndx / nLen; dirY = ndy / nLen;
+      } else {
+        p.hitTint *= CFG.hitTintDecay;
+      }
+
+      // Ease speed multiplier toward target
+      p.speedScale = mix(p.speedScale, targetScale, CFG.bumpEase);
+
+      // Apply constant magnitude (with bump)
+      const finalSpeed = p.baseSpeed * p.speedScale;
+      p.vx = dirX * finalSpeed;
+      p.vy = dirY * finalSpeed;
+
+      // Integrate
+      p.x += p.vx * (dt/16);
+      p.y += p.vy * (dt/16);
+
+      // Wrap edges
+      if (p.x < 0) p.x += w; if (p.x > w) p.x -= w;
+      if (p.y < 0) p.y += h; if (p.y > h) p.y -= h;
+
+      drawDot(p);
+    }
+
+    raf = requestAnimationFrame(step);
+  }
+
+  // Track mouse position & velocity (smoothed)
+  function onMove(e){
+    const now = performance.now();
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * DPR;
+    const y = (e.clientY - rect.top)  * DPR;
+
+    const dt = Math.max(1, now - lastMouseT);
+    const rawVx = (x - mouse.x) / dt; // px/ms
+    const rawVy = (y - mouse.y) / dt;
+
+    // Low-pass filter for smooth direction (tune 0.2..0.35)
+    const smooth = 0.25;
+    mouse.vx = mix(mouse.vx, rawVx * 16, smooth); // scale to ~per-frame basis
+    mouse.vy = mix(mouse.vy, rawVy * 16, smooth);
+    mouse.speed = len(mouse.vx, mouse.vy);
+
+    mouse.x = x; mouse.y = y;
+    lastMouseT = now;
+  }
+  function onLeave(){
+    mouse.x = -1e5; mouse.y = -1e5;
+    mouse.vx = 0; mouse.vy = 0; mouse.speed = 0;
+  }
+
+  addEventListener('resize', resizeCanvas, { passive:true });
+  canvas.addEventListener('mousemove', onMove, { passive:true });
+  canvas.addEventListener('mouseleave', onLeave, { passive:true });
+
+  resizeCanvas();
+  raf = requestAnimationFrame(step);
+</script>
 </body>
 </html>
