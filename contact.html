@@ -1,207 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siddharth Chattoraj: Contact</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/jpeg" href="images/your_photo.jpg">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Siddharth Chattoraj · Contact</title>
 
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
+  <!-- Shared site styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page-design.css" />
+  <link rel="icon" type="image/jpeg" href="images/your_photo.jpg" />
 
-        section {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 40px auto;         /* space from nav and bottom */
-            padding: 30px 40px;        /* inside padding */
-            background: #fff;          /* solid white */
-            border-radius: 10px;
-            box-sizing: border-box;
-        }
+  <style>
+    :root{
+      --bg:#000; --fg:#fff; --muted:#bfbfbf; --panel:#1a1a1a; --stroke:rgba(255,255,255,.08);
+      --accent1:#00c2ff; --accent2:#2ee6b8;
+    }
 
-        h2, p, form {
-            text-align: left;
-        }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 600px;
-        }
+    /* Canvas sits behind everything */
+    canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
 
-        label {
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
+    /* Page content panel */
+    section {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 84px auto;        /* space from header and bottom */
+      padding: 30px 40px;       /* inside padding */
+      background: var(--panel); /* dark panel to match site */
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      box-sizing: border-box;
+      box-shadow: 0 0 30px rgba(0,0,0,.4);
+    }
 
-        input, textarea {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            width: 100%;
-            box-sizing: border-box;
-        }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-        textarea {
-            resize: none;
-            height: 120px;
-        }
+    p { color: var(--muted); }
 
-        button {
-            padding: 0.75rem 1.5rem;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            width: fit-content;  /* left-aligned */
-        }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin-top: 1rem;
+    }
 
-        /* --- Mobile-only tweaks --- */
-        @media (max-width: 600px) {
-            html, body { overflow-x: hidden; }
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
 
-            section {
-                margin: 20px auto;
-                padding: 20px;
-            }
+    input, textarea {
+      margin-bottom: 1rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--stroke);
+      border-radius: 8px;
+      background: #0a0a0a;
+      color: var(--fg);
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-            textarea {
-                height: 100px;
-            }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent1);
+      box-shadow: 0 0 6px rgba(0,194,255,.4);
+    }
 
-            button {
-                width: 100%;
-                align-self: center;
-            }
-        }
-    </style>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("XtKpGeCI22dGIwKPs");
-        })();
-        
-        function sendEmail(e) {
-            e.preventDefault();
-            emailjs.sendForm('service_9lmfwgo', 'template_vrtic4a', e.target)
-                .then(function() {
-                    alert('Email sent successfully!');
-                }, function(error) {
-                    alert('Failed to send email: ' + JSON.stringify(error));
-                });
-        }
-    </script>
-</head>
-<body>
-    <canvas id="backgroundCanvas"></canvas>
-    <header>
-        <h1>Siddharth Chattoraj</h1>
-        <nav>
-            <a href="index">Home</a>
-            <a href="design">Design</a>
-            <a href="fabrication">Fabrication</a>
-            <a href="contact">Contact</a>
-        </nav>
-    </header>
-    <section>
-        <h2>Contact Me</h2>
-        <p><b>Email:</b> siddharthchattoraj [at] gmail [dot] com<br><b>Phone:</b> (408)-747-9587</p>
-        <form onsubmit="sendEmail(event)">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+    /* Button matches index behavior (gray base → blue–teal on hover with black text) */
+    .btn {
+      padding: 0.8rem 1.4rem;
+      background: var(--panel);
+      color: #fff;
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: .95rem;
+      font-weight: 700;
+      width: fit-content;
+      transition:
+        background .35s ease,
+        box-shadow .35s ease,
+        transform .15s ease,
+        filter .25s ease,
+        color .2s ease;
+      background-size: 200% 100%;
+      background-position: 0% 50%;
+    }
+    .btn:hover {
+      background-image: linear-gradient(90deg, var(--accent1), var(--accent2));
+      background-size: 200% 100%;
+      animation: gradientShift 2.5s ease-in-out infinite alternate;
+      box-shadow:
+        0 0 12px rgba(0,194,255,.4),
+        0 0 25px rgba(46,230,184,.25);
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      color: #000; /* black text on hover */
+    }
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
 
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
+    /* --- Mobile-only tweaks --- */
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; }
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
+      section {
+        margin: 56px auto;
+        padding: 20px;
+      }
 
-            <button type="submit">Send</button>
-        </form>
-    </section>
-    <script>
-        const canvas = document.getElementById('backgroundCanvas');
-        const ctx = canvas.getContext('2d');
-        let dots = [];
+      textarea {
+        height: 100px;
+      }
 
-        function resizeCanvas() {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+      .btn {
+        width: 100%;
+        align-self: center;
+      }
+    }
+  </style>
 
-        function createDots() {
-            dots = [];
-            for (let i = 0; i < 500; i++) {
-                dots.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random()/8 + 1,
-                    dx: Math.random() - 0.5,
-                    dy: Math.random() - 0.5
-                });
-            }
-        }
-        function drawDots() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let dot of dots) {
-                ctx.beginPath();
-                ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2, false);
-                ctx.fillStyle = 'white';
-                ctx.fill();
-                ctx.closePath();
-            }
-        }
-        function updateDots() {
-            for (let dot of dots) {
-                dot.x += dot.dx;
-                dot.y += dot.dy;
-                if (dot.x < 0 || dot.x > canvas.width || dot.y < 0 || dot.y > canvas.height) {
-                    dot.x = Math.random() * canvas.width;
-                    dot.y = Math.random() * canvas.height;
-                }
-            }
-        }
-        function animate() {
-            drawDots();
-            updateDots();
-            requestAnimationFrame(animate);
-        }
-        canvas.addEventListener('mousemove', (e) => {
-            for (let dot of dots) {
-                const dx = e.clientX - dot.x;
-                const dy = e.clientY - dot.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100) {
-                    dot.dx = dx / distance;
-                    dot.dy = dy / distance;
-                }
-            }
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("XtKpGeCI22dGIwKPs");
+    })();
+
+    function sendEmail(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_9lmfwgo', 'template_vrtic4a', e.target)
+        .then(function() {
+          alert('Email sent successfully!');
+        }, function(error) {
+          alert('Failed to send email: ' + JSON.stringify(error));
         });
-        createDots();
-        animate();
-    </script>
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Header (exact same markup as your other pages; styled by page-design.css) -->
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index">Siddharth Chattoraj</a>
+      <div class="spacer"></div>
+
+      <input id="menu-toggle" class="menu-toggle" type="checkbox" aria-label="Toggle navigation">
+      <label class="hamburger" for="menu-toggle"><span></span></label>
+
+      <nav>
+        <a href="index">Home</a>
+        <a href="design">Design</a>
+        <a href="fabrication">Fabrication</a>
+        <a href="contact" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <canvas id="backgroundCanvas"></canvas>
+
+  <section>
+    <h2>Contact Me</h2>
+    <p><b>Email:</b> siddharthchattoraj [at] gmail [dot] com<br><b>Phone:</b> (408)-747-9587</p>
+
+    <form onsubmit="sendEmail(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </section>
+
+  <script>
+    // === Dots: same structure/format as your original, just color/brightness changed ===
+    const canvas = document.getElementById('backgroundCanvas');
+    const ctx = canvas.getContext('2d');
+    let dots = [];
+
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function createDots() {
+      dots = [];
+      for (let i = 0; i < 500; i++) {
+        // pick cyan or teal with slight transparency for a soft glow
+        const color = Math.random() < 0.5
+          ? 'rgba(0, 194, 255, 0.7)'   // cyan
+          : 'rgba(46, 230, 184, 0.6)'; // teal
+
+        dots.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() / 8 + 1,
+          dx: Math.random() - 0.5,
+          dy: Math.random() - 0.5,
+          color
+        });
+      }
+    }
+
+    function drawDots() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let dot of dots) {
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = dot.color; // blue–teal instead of white
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+
+    function updateDots() {
+      for (let dot of dots) {
+        dot.x += dot.dx;
+        dot.y += dot.dy;
+        if (dot.x < 0 || dot.x > canvas.width || dot.y < 0 || dot.y > canvas.height) {
+          dot.x = Math.random() * canvas.width;
+          dot.y = Math.random() * canvas.height;
+        }
+      }
+    }
+
+    function animate() {
+      drawDots();
+      updateDots();
+      requestAnimationFrame(animate);
+    }
+
+    // Hover responsiveness (same format)
+    canvas.addEventListener('mousemove', (e) => {
+      for (let dot of dots) {
+        const rect = canvas.getBoundingClientRect();
+        const dx = (e.clientX - rect.left) - dot.x;
+        const dy = (e.clientY - rect.top) - dot.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 100) {
+          dot.dx = dx / distance;
+          dot.dy = dy / distance;
+        }
+      }
+    });
+
+    createDots();
+    animate();
+  </script>
 </body>
 </html>
