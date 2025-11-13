@@ -28,7 +28,7 @@
       <nav>
             <a href="/">Home</a>
             <a href="design">Design</a>
-            <a href="researchtools" aria-current="page">Research and Tools</a>
+            <a href="research-tools" aria-current="page">Research and Tools</a>
             <a href="contact">Contact</a>
       </nav>
     </div>
@@ -42,7 +42,18 @@
     }
     html,body{background:#000;color:#fff;}
     section{max-width:1280px;margin:0 auto;padding:0 16px 64px;background:var(--bg);}
-    .main-content h2{font-size:2.5rem;text-align:center;margin:8px 0 6px;color:var(--fg);}
+    /* Match site heading gradient + protect descenders */
+    .main-content h2{
+      font-size:2.5rem;
+      text-align:center;
+      margin:8px 0 6px;
+      background: linear-gradient(90deg,#00c2ff,#2ee6b8);
+      -webkit-background-clip:text; background-clip:text;
+      color:transparent;
+      line-height:1.2;
+      display:inline-block;
+      padding-bottom:4px;
+    }
     .subtitle{ text-align:center;color:var(--muted);margin:0 0 24px;font-size:.95rem;}
 
     /* 3-up, larger tiles */
@@ -92,7 +103,7 @@
   </style>
 
   <div class="main-content">
-    <h2>Data Portfolio</h2>
+    <h2>Research and Tools Portfolio</h2>
     <p class="subtitle">Click each image to learn more.</p>
 
     <div class="show-grid">
@@ -115,7 +126,7 @@
 
       <!-- DataFest -->
       <article class="tile">
-        <a class="tile-link" href="../data/DataFest">
+        <a class="tile-link" href="../data/datafest">
           <div class="tile-media">
             <img src="../data-webp/DataFest/DataFest Image 1.webp" alt="DataFest">
             <div class="overlay"><span>DataFest</span></div>
