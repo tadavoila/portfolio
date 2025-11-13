@@ -51,6 +51,9 @@
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
+      line-height:1.15; /* protect descenders from clipping */
+      display:inline-block; /* avoid line box clipping in some browsers */
+      padding-bottom:6px; /* subtle space for j/g descenders */
     }
     .hero-left p {
       color:var(--muted);
