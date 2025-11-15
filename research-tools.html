@@ -100,6 +100,49 @@
       font-size:1rem; line-height:1.3; color:var(--fg);
     }
     .tile-caption .role{ display:block;color:var(--muted);font-size:.9rem;margin-top:2px; }
+
+    /* Poster-size gallery */
+    .poster-wrap{ margin-top:16px; }
+    .poster-heading{
+      font-size:2rem; text-align:center; margin:8px 0 14px;
+      background: linear-gradient(90deg,#00c2ff,#2ee6b8);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      line-height:1.2; display:inline-block; width:100%;
+    }
+    .poster-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(320px,1fr));
+      gap:24px;
+    }
+    @media (max-width:1100px){ .poster-grid{ grid-template-columns: repeat(2, minmax(300px,1fr)); } }
+    @media (max-width:590px){ .poster-grid{ grid-template-columns:1fr; gap:16px; } }
+    @media (max-width:590px){ .poster-wrap{ margin-top:12px; } }
+
+    .poster-tile{
+      background:var(--bg);
+      border:1px solid rgba(255,255,255,0.1);
+      overflow:hidden; display:flex; flex-direction:column;
+      border-radius:0; box-shadow:none;
+    }
+    .poster-media{
+      position:relative;width:100%;aspect-ratio:2/3;background:#000;overflow:hidden;
+    }
+    .poster-media img{
+      width:100%;height:100%;object-fit:cover;object-position:center;display:block;
+      transition:transform .35s ease, filter .35s ease, opacity .35s ease;
+      border-radius:0 !important; clip-path:none !important;
+      -webkit-mask-image:none !important; mask-image:none !important;
+      box-shadow:none !important;
+    }
+    .poster-caption{
+      background:var(--panel);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:14px 14px 16px;
+      font-size:1.05rem; line-height:1.3; color:var(--fg);
+    }
+    .poster-caption .role{ display:block;color:var(--muted);font-size:.9rem;margin-top:2px; }
+    .poster-tile:hover .poster-media img{ filter:brightness(.6); transform:scale(1.03); }
+    .poster-tile:hover .overlay{ opacity:1; }
   </style>
 
   <div class="main-content">
@@ -108,50 +151,18 @@
 
     <div class="show-grid">
 
-      <!-- Dynamical Systems -->
+      <!-- Pattern Illustrator -->
       <article class="tile">
-        <a class="tile-link" href="../data/dynamical-systems">
+        <a class="tile-link" href="../data/pattern-illustrator">
           <div class="tile-media">
-            <img src="../data-webp/CAMP7_ Chattoraj, Patel, & Todd (2024).webp" alt="Dynamical Systems Models of Language Change">
-            <div class="overlay"><span>Deepening Understanding of Frequency Effects in Exemplar Models of Language Change</span></div>
+            <img src="../data-webp/PatternIllustrator.webp" alt="Pattern Illustrator">
+            <div class="overlay"><span>Pattern Illustrator</span></div>
           </div>
         </a>
-        <a class="tile-link" href="../data/dynamical-systems">
+        <a class="tile-link" href="../data/PatternIllustrator">
           <div class="tile-caption">
-            Deepening Understanding of Frequency Effects in Exemplar Models of Language Change
-            <span class="role">CAMP[7] Poster</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- DataFest -->
-      <article class="tile">
-        <a class="tile-link" href="../data/datafest">
-          <div class="tile-media">
-            <img src="../data-webp/DataFest/DataFest Image 1.webp" alt="DataFest">
-            <div class="overlay"><span>DataFest</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../data-webp/datafest">
-          <div class="tile-caption">
-            DataFest
-            <span class="role">DataFest Talk</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- SlangSwitch -->
-      <article class="tile">
-        <a class="tile-link" href="../data/SlangSwitch">
-          <div class="tile-media">
-            <img src="../data-webp/SlangSwitch Poster.webp" alt="SlangSwitch">
-            <div class="overlay"><span>SlangSwitch</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../data/SlangSwitch">
-          <div class="tile-caption">
-            SlangSwitch
-            <span class="role">Data Science UCSB Showcase Talk</span>
+            Pattern Illustrator
+            <span class="role">Drawing and Animation Tool: Designer and Developer</span>
           </div>
         </a>
       </article>
@@ -167,7 +178,7 @@
         <a class="tile-link" href="../data/daily-nexus-grades">
           <div class="tile-caption">
             Daily Nexus Grades Search
-            <span class="role">Daily Nexus Grades Search</span>
+            <span class="role">UCSB Grades Finder: Project Manager and Developer</span>
           </div>
         </a>
       </article>
@@ -176,97 +187,103 @@
       <article class="tile">
         <a class="tile-link" href="../data/daily-nexus-games">
           <div class="tile-media">
-            <img src="../data-webp/nexus-games-home.webp" alt="Daily Nexus Games">
+            <img src="../data-webp/nexus-games-homepage.webp" alt="Daily Nexus Games">
             <div class="overlay"><span>Daily Nexus Games</span></div>
           </div>
         </a>
         <a class="tile-link" href="../data/daily-nexus-games">
           <div class="tile-caption">
             Daily Nexus Games
-            <span class="role">Daily Nexus Games</span>
+            <span class="role">Newspaper Games: Founder and Crossword Developer</span>
           </div>
         </a>
       </article>
+    </div>
 
-      <!-- Pattern Illustrator -->
-      <article class="tile">
-        <a class="tile-link" href="../data/pattern-illustrator">
-          <div class="tile-media">
-            <img src="../data-webp/PatternIllustrator.webp" alt="Pattern Illustrator">
-            <div class="overlay"><span>Pattern Illustrator</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../data/PatternIllustrator">
-          <div class="tile-caption">
-            Pattern Illustrator
-            <span class="role">Animation Tool</span>
-          </div>
-        </a>
-      </article>
+    <!-- Poster-size container for the last five images -->
+    <div class="poster-wrap" aria-label="Poster size gallery">
+      <div class="poster-grid">
 
-      <!-- Instagram DM Visualization -->
-      <article class="tile">
-        <a class="tile-link" href="../data/InstagramDM">
-          <div class="tile-media">
-            <img src="../data-webp/InstagramDMVisualizer.webp" alt="Instagram DM Visualization">
-            <div class="overlay"><span>Instagram DM Visualization</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../data-webp/InstagramDM">
-          <div class="tile-caption">
-            Instagram DM Visualization
-            <span class="role">MAT 236 Drawing Tool</span>
-          </div>
-        </a>
-      </article>
+        <!-- Dynamical Systems -->
+        <article class="poster-tile">
+          <a class="tile-link" href="../data/dynamical-systems">
+            <div class="poster-media">
+              <img src="../data-webp/CAMP7_ Chattoraj, Patel, & Todd (2024).webp" alt="Dynamical Systems Models of Language Change">
+              <div class="overlay"><span>Deepening Understanding of Frequency Effects in Exemplar Models of Language Change</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../data/dynamical-systems">
+            <div class="poster-caption">
+              Deepening Understanding of Frequency Effects in Exemplar Models of Language Change
+              <span class="role">CAMP[7] Poster: Researcher</span>
+            </div>
+          </a>
+        </article>
 
-      <!-- Wearable Technology For Dance -->
-      <article class="tile">
-        <a class="tile-link" href="../data/wearabletech">
-          <div class="tile-media">
-            <img src="../design-webp/Wearable Technology For Dance/Wearable Technology For Dance Image 1.webp" alt="Wearable Technology For Dance">
-            <div class="overlay"><span>Wearable Technology For Dance</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../data/wearabletech">
-          <div class="tile-caption">
-            Wearable Technology For Dance
-            <span class="role">Senior Thesis Project</span>
-          </div>
-        </a>
-      </article>
+        <!-- SlangSwitch -->
+        <article class="poster-tile">
+          <a class="tile-link" href="../data/SlangSwitch">
+            <div class="poster-media">
+              <img src="../data-webp/SlangSwitch Poster.webp" alt="SlangSwitch">
+              <div class="overlay"><span>SlangSwitch: Slang-to-Formal Language Translator</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../data/SlangSwitch">
+            <div class="poster-caption">
+              SlangSwitch: Slang-to-Formal Language Translator
+              <span class="role">Data Science UCSB Showcase Talk: Developer</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Wearable Technology For Dance -->
+        <article class="poster-tile">
+          <a class="tile-link" href="../data/wearabletech">
+            <div class="poster-media">
+              <img src="../data-webp/wearable_dress_led.webp" alt="Wearable Technology For Dance">
+              <div class="overlay"><span>Designing Embodied Wearable Technology to Enhance Kinesthetic Expression for Dance</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../data/wearabletech">
+            <div class="poster-caption">
+              Designing Embodied Wearable Technology to Enhance Kinesthetic Expression for Dance
+              <span class="role">Senior Honors Thesis Project: Researcher and Designer</span>
+            </div>
+          </a>
+        </article>
 
         <!-- 3D-Printed Sandals -->
-      <article class="tile">
-        <a class="tile-link" href="../data/3d-printed-sandals">
-          <div class="tile-media">
-            <img src="../data-webp/Sandals Image 1.webp" alt="3D-Printed Sandals">
-            <div class="overlay"><span>3D-Printed Sandals</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../data/3d-printed-sandals">
-          <div class="tile-caption">
-            3D-Printed Sandals
-            <span class="role">3D-Printed Sandals</span>
-          </div>
-        </a>
-      </article>
+        <article class="poster-tile">
+          <a class="tile-link" href="../data/3d-printed-sandals">
+            <div class="poster-media">
+              <img src="../data-webp/Sandals Image 1.webp" alt="3D-Printed Sandals">
+              <div class="overlay"><span>3D-Printed Sandals</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../data/3d-printed-sandals">
+            <div class="poster-caption">
+              3D-Printed Sandals
+              <span class="role">Sustainable Wearable Sandals: Designer and Fabricator</span>
+            </div>
+          </a>
+        </article>
 
-      <!-- Flower Lampshades -->
-      <article class="tile">
-        <a class="tile-link" href="../data/flower-lampshades">
-          <div class="tile-media">
-            <img src="../data-webp/Flower Lamps Image 1.webp" alt="Flower Lampshades">
-            <div class="overlay"><span>Flower Lampshades</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../data/flower-lampshades">
-          <div class="tile-caption">
-            Flower Lampshades
-            <span class="role">Flower Lampshades</span>
-          </div>
-        </a>
-      </article>
+        <!-- Flower Lampshades -->
+        <article class="poster-tile">
+          <a class="tile-link" href="../data/flower-lampshades">
+            <div class="poster-media">
+              <img src="../data-webp/FlowerLamp.webp" alt="Flower Lampshades">
+              <div class="overlay"><span>Flower Lampshades</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../data/flower-lampshades">
+            <div class="poster-caption">
+              Flower Lampshades
+              <span class="role">Procedurally Generated Shades: Designer and Fabricator</span>
+            </div>
+          </a>
+        </article>
+      </div>
     </div>
   </div>
 </section>

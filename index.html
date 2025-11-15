@@ -234,6 +234,8 @@
       font-size:.9rem;
       margin-top:2px;
     }
+    /* Ensure research tiles' caption fills to bottom of equal-height grid rows */
+    section[aria-labelledby="sel-research-head"] .tile-caption { flex-grow: 1; }
 
     /* ===== View Portfolio Button ===== */
     .more-row {
@@ -356,7 +358,7 @@
   <!-- ===== SELECTED DESIGN WORK ===== -->
   <section aria-labelledby="sel-design-head">
     <div class="section-head">
-      <div class="section-title" id="sel-design-head">Selected Design Work</div>
+      <div class="section-title" id="sel-design-head">Design Work</div>
       <div class="section-sub">A few highlights—see the full set on the Design page.</div>
     </div>
 
@@ -409,6 +411,68 @@
 
     <div class="more-row">
       <a class="link-pill" href="design">View design portfolio</a>
+    </div>
+  </section>
+
+  <!-- ===== RESEARCH AND TOOLS ===== -->
+  <section aria-labelledby="sel-research-head">
+    <div class="section-head">
+      <div class="section-title" id="sel-research-head">Research and Tools</div>
+      <div class="section-sub">Selected projects—explore more on the Research and Tools page.</div>
+    </div>
+
+    <div class="show-grid">
+      <!-- Pattern Illustrator -->
+      <article class="tile">
+        <a class="tile-link" href="data/PatternIllustrator">
+          <div class="tile-media">
+            <img src="data-webp/PatternIllustrator.webp" alt="Pattern Illustrator">
+            <div class="overlay">Pattern Illustrator</div>
+          </div>
+        </a>
+        <a class="tile-link" href="data/PatternIllustrator">
+          <div class="tile-caption">
+            Pattern Illustrator
+            <span class="role">Drawing and Animation Tool<br>Designer and Developer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Daily Nexus Grades Search -->
+      <article class="tile">
+        <a class="tile-link" href="data/daily-nexus-grades">
+          <div class="tile-media">
+            <img src="data-webp/nexus-grades-search-home.webp" alt="Daily Nexus Grades Search">
+            <div class="overlay">Daily Nexus Grades Search</div>
+          </div>
+        </a>
+        <a class="tile-link" href="data/daily-nexus-grades">
+          <div class="tile-caption">
+            Daily Nexus Grades Search
+            <span class="role">UCSB Grades Finder<br>Project Manager and Developer</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Deepening Frequency (use horizontal container) -->
+      <article class="tile">
+        <a class="tile-link" href="data/dynamical-systems">
+          <div class="tile-media">
+            <img src="data-webp/CAMP7_ Chattoraj, Patel, & Todd (2024).webp" alt="Deepening Understanding of Frequency Effects in Exemplar Models of Language Change">
+            <div class="overlay">Deepening Understanding of Frequency Effects in Exemplar Models of Language Change</div>
+          </div>
+        </a>
+        <a class="tile-link" href="data/dynamical-systems">
+          <div class="tile-caption">
+            Deepening Understanding of Frequency Effects in Exemplar Models of Language Change
+            <span class="role">CAMP[7] Poster: Researcher</span>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <div class="more-row">
+      <a class="link-pill" href="research-tools">See research and tools portfolio</a>
     </div>
   </section>
 
