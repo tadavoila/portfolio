@@ -11,6 +11,43 @@ section {
   background: var(--bg);
 }
 
+/* Split layout for grades page */
+.split-block {
+  display: grid;
+  gap: 40px;
+  align-items: start;
+  margin-top: 32px;
+}
+@media (min-width: 960px) {
+  .split-block { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 959px) {
+  .split-block { grid-template-columns: 1fr; }
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.media-grid .tile { border: 1px solid rgba(255,255,255,.12); }
+.media-grid .tile-media { aspect-ratio: 16 / 10; background:#000; }
+.media-grid img { width:100%; height:100%; object-fit:cover; transition: transform .35s ease, filter .35s ease; }
+.media-grid .tile:hover img { filter:brightness(.9); transform:scale(1.02); }
+
+/* Project info (right column) */
+.project-info { display:flex; flex-direction:column; gap:16px; }
+.project-info .role { margin:0 0 4px; }
+.project-info .desc { margin:0 0 10px; }
+.project-info .buttons { justify-content:flex-start; }
+@media (max-width:700px){ .project-info .buttons { justify-content:center; } }
+
+/* Page head (title/subtitle above split) */
+.page-head.hero { text-align:center; margin:14px 0 4px; }
+.page-head.hero h2 { margin:8px 0 6px; }
+.page-head.hero .subtitle { margin:0 0 4px; }
+.page-head.hero .role { margin:0 0 12px; }
+
 /* Hero header */
 .hero {
   text-align: center;
@@ -67,6 +104,20 @@ section {
   cursor: pointer;
   font-size: .98rem;
   transition: background .25s ease, transform .25s ease, border-color .25s ease;
+}
+/* Primary CTA variant for grades search */
+.buttons .cta-grades { flex-basis: 100%; }
+.buttons .cta-grades button {
+  background: linear-gradient(90deg, #00c2ff, #2ee6b8);
+  color: #111;
+  font-weight: 700;
+  border: 1.5px solid rgba(255,255,255,0.9);
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+.buttons .cta-grades button:hover,
+.buttons .cta-grades:focus-visible button {
+  background: linear-gradient(90deg, #2ee6b8, #00c2ff);
+  border-color: #fff;
 }
 /* Hover triggers whether over <a> or <button> */
 .buttons button:hover,
@@ -146,4 +197,5 @@ section {
   .desc { font-size: .98rem; }
   .credits dl { grid-template-columns: 1fr; }
   .credits dt { text-align: left; }
+  .buttons .cta-grades { flex-basis: 100%; }
 }
