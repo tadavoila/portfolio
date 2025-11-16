@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>SlangSwitch: Slang-to-Formal Translation with Regional and Demographic Analysis</title>
+
+	<!-- Global styles -->
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/page-design.css" />
+	<link rel="stylesheet" href="../css/performance.css" />
+
+	<link rel="icon" type="image/webp" href="../images/siddharth_chattoraj.webp" />
+	<meta name="description" content="SlangSwitch: A slang-to-formal translator predicting regional variation, age group, sentiment, and slang percentage" />
+
+	<style>
+		/* Inline layout: poster left (50%), text right - matching dynamical-systems */
+		.ds-layout {display:flex; gap:2rem; align-items:flex-start; flex-wrap:nowrap; margin-top:32px;}
+		.ds-poster-column {flex:0 0 50%; max-width:50%;}
+		.info-column {flex:1; min-width:0;}
+		@media (max-width: 900px) {
+			.ds-layout {flex-direction:column;}
+			.ds-poster-column, .info-column {flex:1 1 auto; max-width:100%;}
+		}
+	</style>
+</head>
+<body>
+	<!-- Shared header -->
+	<header>
+		<div class="header-inner">
+			<a class="brand" href="../">Siddharth Chattoraj</a>
+			<div class="spacer"></div>
+
+			<input id="menu-toggle" class="menu-toggle" type="checkbox" aria-label="Toggle navigation">
+			<label class="hamburger" for="menu-toggle"><span></span></label>
+
+			<nav>
+				<a href="../">Home</a>
+				<a href="../design">Design</a>
+				<a href="../research-tools" aria-current="page">Research and Tools</a>
+				<a href="../contact">Contact</a>
+			</nav>
+		</div>
+	</header>
+
+	<section class="section-free">
+		<div class="page-head hero">
+			<h2>SlangSwitch: Slang-to-Formal Translation with<br>Regional and Demographic Analysis</h2>
+			<p class="subtitle">A slang-to-formal translator predicting regional variation, age group, sentiment, and slang percentage</p>
+			<p class="role">Front-End Designer · Slang Identification Developer</p>
+			<div class="buttons">
+				<a href="../data-files/slangswitch_slides.pdf" target="_blank" rel="noopener" class="cta-grades"><button>View Presentation</button></a>
+			</div>
+		</div>
+
+		<div class="ds-layout">
+			<!-- Left column: poster -->
+			<div class="ds-poster-column">
+				<style>
+					/* Poster styling */
+					.ds-poster-block { margin:0; width:100%; border:1px solid rgba(255,255,255,.12); background:#000; overflow:hidden; }
+					.ds-poster-link { display:block; width:100%; text-decoration:none; }
+					.ds-poster-media { position:relative; width:100%; background:#000; }
+					.ds-poster-media img { display:block; width:100%; height:auto; object-fit:contain; transition:transform .35s ease, filter .35s ease; }
+					.ds-poster-link:hover img { filter:brightness(.9); transform:scale(1.02); }
+				</style>
+				<figure class="ds-poster-block">
+					<a class="ds-poster-link" href="../data-webp/SlangSwitch Poster.webp" target="_blank" rel="noopener" aria-label="Open SlangSwitch Poster">
+						<div class="ds-poster-media">
+							<img src="../data-webp/SlangSwitch Poster.webp" alt="SlangSwitch Poster: Slang-to-Formal Translation" loading="lazy">
+						</div>
+					</a>
+				</figure>
+			</div>
+
+			<!-- Right column: narrative and details -->
+			<div class="project-info info-column">
+				<div class="desc">
+					I worked with Jesse Nunez, Madhav Viswesvaran, Ishaan Avinash, Calais Waring, and Anna Lin to develop SlangSwitch, a slang-to-formal translator that also predicts regional variation, age group, sentiment, and the overall percentage of slang in a user's input. The project combined neural style transfer with demographic-focused linguistic analysis to explore how informal language varies across generations and regions. We used Styleformer, built on top of Hugging Face transformers, to translate slang and informality into more formal text. Beyond translation, the tool incorporated regional identification through web-scraped slang dictionaries, age prediction using frequency-based slang lists for >18, 18–29, and 30+, sentiment analysis through TextBlob and NLTK, and percentage analysis using the OpenAI API to quantify slang density.
+					<br><br>
+					Within the team, I designed the front-end interface, including the visual layout of SlangSwitch, and I created the poster and presentation materials for the Data Science UCSB Project Showcase. I also handled the web-scraping of regional slang and built the regex-based matching system that linked user input to region-specific terminology. Our project won 2nd place at the Data Science UCSB Project Showcase.
+				</div>
+				<div class="buttons">
+					<a href="../data-files/SlangSwitch.pdf" target="_blank" rel="noopener" class="cta-block"><button>View Poster</button></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="credits">
+			<h3>Project Credits</h3>
+			<dl>
+				<dt>Authors</dt><dd>Jesse Nunez · Madhav Viswesvaran · Ishaan Avinash · Siddharth Chattoraj · Calais Waring · Anna Lin</dd>
+				<dt>Event</dt><dd>Data Science UCSB Project Showcase (2nd Place)</dd>
+			</dl>
+		</div>
+	</section>
+</body>
+</html>

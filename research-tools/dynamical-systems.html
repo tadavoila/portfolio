@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Deepening Understanding of Frequency Effects in Exemplar Models of Language Change</title>
+
+	<!-- Global styles -->
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/page-design.css" />
+	<link rel="stylesheet" href="../css/performance.css" />
+
+	<link rel="icon" type="image/webp" href="../images/siddharth_chattoraj.webp" />
+	<meta name="description" content="CAMP[7] poster on exemplar-based dynamical systems: frequency effects under overwriting vs decay architectures" />
+
+	<style>
+		/* Inline layout: poster left (50%), text right - matching flower-lampshades */
+		.ds-layout {display:flex; gap:2rem; align-items:flex-start; flex-wrap:nowrap; margin-top:32px;}
+		.ds-poster-column {flex:0 0 50%; max-width:50%;}
+		.info-column {flex:1; min-width:0;}
+		@media (max-width: 900px) {
+			.ds-layout {flex-direction:column;}
+			.ds-poster-column, .info-column {flex:1 1 auto; max-width:100%;}
+		}
+	</style>
+</head>
+<body>
+	<!-- Shared header -->
+	<header>
+		<div class="header-inner">
+			<a class="brand" href="../">Siddharth Chattoraj</a>
+			<div class="spacer"></div>
+
+			<input id="menu-toggle" class="menu-toggle" type="checkbox" aria-label="Toggle navigation">
+			<label class="hamburger" for="menu-toggle"><span></span></label>
+
+			<nav>
+				<a href="../">Home</a>
+				<a href="../design">Design</a>
+				<a href="../research-tools" aria-current="page">Research and Tools</a>
+				<a href="../contact">Contact</a>
+			</nav>
+		</div>
+	</header>
+
+	<section class="section-free">
+		<div class="page-head hero">
+			<h2>Deepening Understanding of Frequency Effects in<br>Exemplar Models of Language Change</h2>
+			<p class="subtitle">CAMP[7] poster on exemplar-based dynamical systems: frequency effects under overwriting vs decay architectures</p>
+			<p class="role">Researcher</p>
+			<div class="buttons">
+				<a href="../data-files/CAMP7_%20Chattoraj,%20Patel,%20&%20Todd%20(2024).pdf" target="_blank" rel="noopener" class="cta-grades"><button>View Poster</button></a>
+			</div>
+		</div>
+
+		<div class="ds-layout">
+			<!-- Left column: poster -->
+			<div class="ds-poster-column">
+				<style>
+					/* Poster styling */
+					.ds-poster-block { margin:0; width:100%; border:1px solid rgba(255,255,255,.12); background:#000; overflow:hidden; }
+					.ds-poster-link { display:block; width:100%; text-decoration:none; }
+					.ds-poster-media { position:relative; width:100%; background:#000; }
+					.ds-poster-media img { display:block; width:100%; height:auto; object-fit:contain; transition:transform .35s ease, filter .35s ease; }
+					.ds-poster-link:hover img { filter:brightness(.9); transform:scale(1.02); }
+				</style>
+				<figure class="ds-poster-block">
+					<a class="ds-poster-link" href="../data-webp/CAMP7_%20Chattoraj,%20Patel,%20&%20Todd%20(2024).webp" target="_blank" rel="noopener" aria-label="Open CAMP[7] Poster">
+						<div class="ds-poster-media">
+							<img src="../data-webp/CAMP7_%20Chattoraj,%20Patel,%20&%20Todd%20(2024).webp" alt="CAMP[7] Poster: Dynamical Systems Frequency Effects" loading="lazy">
+						</div>
+					</a>
+				</figure>
+			</div>
+
+			<!-- Right column: narrative and details -->
+			<div class="project-info info-column">
+				<div class="desc">
+					I collaborated with Shahil Patel, under the mentorship of Dr. Simon Todd, to develop computational simulations that examine how word frequency influences stability and change in exemplar-based models of language evolution. Together, we designed two contrasting architectures from the literature—one in which memory traces of words are overwritten when new experiences occur, and another in which they decay gradually over time—and derived the mathematical formulations needed to track exemplar means and variances over time. Our goal was to explain why different studies report conflicting frequency effects and to identify the specific modeling conditions that produce these discrepancies.
+					<br><br>
+					After co-developing the model design, Shahil implemented the overwriting model and carried out its initial analysis. I implemented the full decay model and built the Python pipeline for 10,000+ iteration simulations to analyze how decay interacts with frequency and exemplar strength. I optimized the runtime from roughly 120 minutes to ~30 seconds by restructuring parallelization and file-writing, which made large parameter sweeps feasible. I conducted the simulation-based analyses using Python and R, comparing how low- and high-frequency words diverged across different total exemplar strengths and documenting when frequency effects strengthen, weaken, or disappear.
+					<br><br>
+					I created the decay model section of the poster so that it reflected the decay results, and I produced the final suite of figures for the decay models and wrote the comparative explanations showing that overwriting erases most frequency differences, while decay generates strong frequency effects only when the total exemplar strength is sufficiently small. In collaboration with Professor Todd, we wrote the introduction and conclusion together.
+					<br><br>
+					These results formed our CAMP[7] poster, which demonstrates that frequency effects in exemplar models are highly architecture-dependent and parameter-sensitive—a finding that helps reconcile conflicting claims in the literature about how frequency shapes linguistic change. We are currently working on turning our findings into a paper for conference and journal submissions.
+				</div>
+			</div>
+		</div>
+
+		<div class="credits">
+			<h3>Project Credits</h3>
+			<dl>
+				<dt>Authors</dt><dd>Siddharth Chattoraj · Shahil Patel · Simon Todd</dd>
+				<dt>Conference</dt><dd>7th California Meeting on Psycholinguistics (UC San Diego)</dd>
+			</dl>
+		</div>
+	</section>
+</body>
+</html>

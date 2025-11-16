@@ -106,8 +106,14 @@ section {
   transition: background .25s ease, transform .25s ease, border-color .25s ease;
 }
 /* Primary CTA variant for grades search */
-.buttons .cta-grades { flex-basis: 100%; }
-.buttons .cta-block { flex-basis: 100%; }
+.buttons .cta-grades { flex-basis: 100%; display:flex; justify-content:center; pointer-events:none; }
+.buttons .cta-block { flex-basis: 100%; display:flex; justify-content:center; pointer-events:none; }
+.project-info .buttons .cta-grades,
+.project-info .buttons .cta-block { justify-content:flex-start; }
+.buttons .cta-grades button,
+.buttons .cta-block button {
+  pointer-events:auto; /* only button is clickable */
+}
 .buttons .cta-grades button {
   background: linear-gradient(90deg, #00c2ff, #2ee6b8);
   color: #111;
@@ -116,13 +122,12 @@ section {
   box-shadow: 0 4px 14px rgba(0,0,0,.35);
 }
 .buttons .cta-grades button:hover,
-.buttons .cta-grades:focus-visible button {
+.buttons .cta-grades button:focus-visible {
   background: linear-gradient(90deg, #2ee6b8, #00c2ff);
   border-color: #fff;
 }
-/* Hover triggers whether over <a> or <button> */
+/* Hover triggers on button only */
 .buttons button:hover,
-.buttons a:hover button,
 .buttons button:focus-visible {
   background: #333;           /* lighter than var(--panel) #1a1a1a */
   border-color: rgba(255,255,255,0.85);
