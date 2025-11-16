@@ -121,7 +121,8 @@ nav a[aria-current="page"]::after {
   .hamburger {
     display:flex;
     margin-left:auto;
-    position:relative; z-index:3;
+    position:relative;
+    z-index:3000;
   }
 
   /* keep checkbox accessible (iOS fix) */
