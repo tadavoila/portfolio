@@ -96,13 +96,25 @@ nav a[aria-current="page"]::after {
 .hamburger {
   display:none; cursor:pointer; width:44px; height:44px;
   align-items:center; justify-content:center; border-radius:8px;
+  position: relative;
 }
 .hamburger:hover { background:rgba(255,255,255,.06); }
-.hamburger span, .hamburger::before, .hamburger::after {
-  content:''; display:block; width:22px; height:2px; background:#fff; position:relative;
+.hamburger span {
+  display:block; width:22px; height:2px; background:#fff;
+  transition: opacity 0.3s ease;
 }
-.hamburger::before { position:absolute; transform: translateY(-6px); }
-.hamburger::after { position:absolute; transform: translateY(6px); }
+.hamburger::before, .hamburger::after {
+  content:''; display:block; width:22px; height:2px; background:#fff;
+  position:absolute; left: 50%; margin-left: -11px;
+  transition: transform 0.3s ease;
+}
+.hamburger::before { transform: translateY(-6px); }
+.hamburger::after { transform: translateY(6px); }
+
+/* Hamburger to X animation */
+.menu-toggle:checked ~ .hamburger span { opacity: 0; }
+.menu-toggle:checked ~ .hamburger::before { transform: rotate(45deg); }
+.menu-toggle:checked ~ .hamburger::after { transform: rotate(-45deg); }
 
 /* ===== Mobile Header Fixes ===== */
 @media (max-width: 820px){
@@ -141,35 +153,43 @@ nav a[aria-current="page"]::after {
     padding-bottom:4px;
   }
 
-  /* === Right-side mobile menu (≈75% opacity) === */
+  /* === Full-screen mobile menu === */
   .header-inner { position: relative; }
   nav {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 12px;
-    left: auto;
-    width: min(78vw, 340px);
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: 10px 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px;
 
-    background: rgba(26,26,26,0.825);
-    backdrop-filter: blur(6px) saturate(1.1);
-    -webkit-backdrop-filter: blur(6px) saturate(1.1);
+    background: rgba(0,0,0,0.97);
+    backdrop-filter: blur(10px) saturate(1.2);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
 
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.45);
-    z-index: 2000;
-    overflow: visible;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2500;
   }
-  .menu-toggle:checked ~ nav { display:flex; }
+  .menu-toggle:checked ~ nav {
+    opacity: 1;
+    pointer-events: all;
+  }
 
   nav a {
-    padding: 12px 12px;
-    font-size: 1rem;
-    border-radius: 10px;
+    padding: 16px 24px;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 200px;
   }
   nav a:hover { background: rgba(255,255,255,.10); }
 
