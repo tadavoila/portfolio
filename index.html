@@ -423,7 +423,7 @@
     </div>
 
     <div class="more-row">
-      <a class="link-pill" href="design">View Design Portfolio</a>
+      <a class="link-pill" href="design">Design Portfolio</a>
     </div>
   </section>
 
@@ -480,8 +480,80 @@
     
 
     <div class="more-row">
-      <a class="link-pill" href="research-tools">View Research and Tools Portfolio</a>
+      <a class="link-pill" href="research-tools">Research and Tools Portfolio</a>
     </div>
+  </section>
+
+  <!-- Divider -->
+  <section>
+    <div class="section-divider"></div>
+  </section>
+
+  <!-- ===== ABOUT ME ===== -->
+  <section aria-labelledby="about-head">
+    <div class="section-head">
+      <div class="section-title" id="about-head">About Siddharth</div>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
+      <div style="color: var(--muted); line-height: 1.7; font-size: 1.05rem;">
+        <p>
+          I'm a visual storyteller passionate about building systems that blend art, design, and computation, and I am finishing my B.S. in Statistics and Data Science, B.A. in Theater (Design), and minor in Language and Speech Technologies from UC Santa Barbara (expected March 2025). My work spans theatrical lighting and projection design, interactive visualizations, data-driven tools, tutoring data science courses, and research on computational psycholinguistics. Most recently, I served as the assistant projection designer for Trollfest in Juneau, worked as the technical director/lighting and projections designer for UCSB Dance Company on their 2025 European tour across Spain, Poland, North Macedonia, and Bulgaria, presented research on exemplar models of language change at UC San Diego, and earned statewide journalism awards for Best Infographic, Best Interactive Graphic and Best Multimedia Package from the California College Media Association. 
+        </p>
+        <p>
+          I am currently focused on developing creativity support systems that assist with ideation and multimodal storytelling and can bridge the gap between computational inference and human understanding. I recently published my newest tool, <a href="research-tools/pattern-illustrator" style="color: var(--muted); text-decoration: underline;">Pattern Illustrator</a>, which enables beginner digital artists and animators to efficiently create expressive illustrations and animations.
+        </p>
+      </div>
+      
+      <div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="about-image-tile">
+            <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
+              <img src="data-webp/slangswitch_team.webp" alt="SlangSwitch team" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">SlangSwitch: Winning second place at Data Science UCSB project showcase</div>
+          </div>
+          <div class="about-image-tile">
+            <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
+              <img src="data-webp/datafest_team.webp" alt="DataFest team" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">DataFest: Presenting research into improving the ABA's Free Legal Answers</div>
+          </div>
+          <div class="about-image-tile">
+            <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
+              <img src="data-webp/ucsbdanceco_team.webp" alt="UCSB Dance Company team" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">UCSB Dance Company: Post-show reception with President Gordana Siljanovska-Davkova</div>
+          </div>
+          <div class="about-image-tile">
+            <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
+              <img src="data-webp/trollfest_team.webp" alt="Trollfest team" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">TrollFest: Programming projection cues with Professor Greg Mitchell</div>
+          </div>
+        </div>
+        
+        <div class="actions" style="margin-top: 20px; justify-content: center;">
+          <a href="design" class="btn">
+            <i class="fa-solid fa-palette"></i> Design Portfolio
+          </a>
+          <a href="research-tools" class="btn">
+            <i class="fa-solid fa-flask"></i> Research and Tools Portfolio
+          </a>
+          <a href="contact" class="btn">
+            <i class="fa-solid fa-paper-plane"></i> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      @media (max-width: 960px) {
+        section[aria-labelledby="about-head"] > div:last-of-type {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
   </section>
 
   <footer>
