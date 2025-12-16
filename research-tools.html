@@ -114,7 +114,27 @@
 
     /* Rectangular external buttons below tiles */
     .tile-group{display:flex;flex-direction:column;}
-    .ext-btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 18px;margin:10px 0 4px;align-self:flex-start;background:#1a1a1a;color:#d8d8d8;font-size:.85rem;font-weight:600;letter-spacing:.35px;border:1px solid rgba(255,255,255,.1);border-radius:5px;text-decoration:none;transition:background .35s ease, box-shadow .35s ease, transform .15s ease, filter .25s ease;background-size:200% 100%;background-position:0% 50%;}
+    .ext-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 18px;
+      margin:10px 0 4px;
+      align-self:stretch;
+      width:100%;
+      background:#1a1a1a;
+      color:#d8d8d8;
+      font-size:.85rem;
+      font-weight:600;
+      letter-spacing:.35px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:5px;
+      text-decoration:none;
+      transition:background .35s ease, box-shadow .35s ease, transform .15s ease, filter .25s ease;
+      background-size:200% 100%;
+      background-position:0% 50%;
+      box-sizing:border-box;
+    }
     .ext-btn:hover{background-image:linear-gradient(90deg,#00c2ff,#2ee6b8);animation:gradientShift 2.5s ease-in-out infinite alternate;box-shadow:0 0 12px rgba(0,194,255,.4),0 0 24px rgba(46,230,184,.25);transform:translateY(-2px);filter:brightness(1.05);color:#000;}
     .ext-btn:focus-visible{outline:2px solid #fff;outline-offset:2px;}
     @keyframes gradientShift {0%{background-position:0% 50%;}100%{background-position:100% 50%;}}
@@ -169,12 +189,31 @@
 
     <div class="show-grid">
 
+      <!-- p5.chart.js -->
+      <div class="tile-group">
+      <article class="tile">
+        <a class="tile-link" href="../research-tools/p5chartjs">
+          <div class="tile-media">
+            <img src="../data-webp/p5chartjs.webp" alt="p5chartjs">
+            <div class="overlay"><span>Pattern Illustrator</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../research-tools/p5chartjs">
+          <div class="tile-caption">
+            p5.chart.js
+            <span class="role">Data Visualization Library: Creator and Developer</span>
+          </div>
+        </a>
+      </article>
+      <a class="ext-btn" href="https://github.com/tadavoila/p5.chart.js" target="_blank" rel="noopener" aria-label="Use p5.chart.js to create interactive visualizations">Use p5.chart.js to create interactive data visualizations</a>
+      </div>
+
       <!-- Pattern Illustrator -->
       <div class="tile-group">
       <article class="tile">
         <a class="tile-link" href="../research-tools/pattern-illustrator">
           <div class="tile-media">
-            <img src="../data-webp/PatternIllustrator.webp" alt="Pattern Illustrator">
+            <img src="../data-webp/Pattern1.webp" alt="Pattern Illustrator">
             <div class="overlay"><span>Pattern Illustrator</span></div>
           </div>
         </a>
@@ -185,7 +224,7 @@
           </div>
         </a>
       </article>
-      <a class="ext-btn" href="https://pattern-illustrator.vercel.app/" target="_blank" rel="noopener" aria-label="Visit the Pattern Illustrator Website">Visit the Pattern Illustrator Website</a>
+      <a class="ext-btn" href="https://pattern-illustrator.vercel.app/" target="_blank" rel="noopener" aria-label="Visit the Pattern Illustrator website">Visit the Pattern Illustrator website</a>
       </div>
 
       <!-- Daily Nexus Grades Search -->
@@ -204,26 +243,64 @@
           </div>
         </a>
       </article>
-      <a class="ext-btn" href="https://dailynexus.com/interactives/grades/" target="_blank" rel="noopener" aria-label="Visit the Daily Nexus Grades Search Website">Visit the Daily Nexus Grades Search Website</a>
+      <a class="ext-btn" href="https://dailynexus.com/interactives/grades/" target="_blank" rel="noopener" aria-label="Visit the Daily Nexus Grades Search website">Visit the Daily Nexus Grades Search website</a>
       </div>
 
       <!-- Daily Nexus Games -->
       <div class="tile-group">
-      <article class="tile">
-        <a class="tile-link" href="../research-tools/daily-nexus-games">
-          <div class="tile-media">
-            <img src="../data-webp/nexus-games-homepage.webp" alt="Daily Nexus Games">
-            <div class="overlay"><span>Daily Nexus Games</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../research-tools/daily-nexus-games">
-          <div class="tile-caption">
-            Daily Nexus Games
-            <span class="role">Newspaper Games: Founder and Crossword Developer</span>
-          </div>
-        </a>
-      </article>
-      <a class="ext-btn" href="https://dailynexus.com/interactives/games/" target="_blank" rel="noopener" aria-label="Visit the Daily Nexus Games Website">Visit the Daily Nexus Games Website</a>
+        <article class="tile">
+          <a class="tile-link" href="../research-tools/daily-nexus-games">
+            <div class="tile-media">
+              <img src="../data-webp/nexus-games-homepage.webp" alt="Daily Nexus Games">
+              <div class="overlay"><span>Daily Nexus Games</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../research-tools/daily-nexus-games">
+            <div class="tile-caption">
+              Daily Nexus Games
+              <span class="role">Newspaper Games: Founder and Crossword Developer</span>
+            </div>
+          </a>
+        </article>
+        <a class="ext-btn" href="https://dailynexus.com/interactives/games/" target="_blank" rel="noopener" aria-label="Visit the Daily Nexus Games website">Visit the Daily Nexus Games website</a>
+      </div>
+
+      <!-- 3D-Printed Sandals -->
+      <div class="tile-group">
+        <article class="tile">
+          <a class="tile-link" href="../research-tools/3d-printed-sandals">
+            <div class="tile-media">
+              <img src="../data-webp/Sandals Image 1.webp" alt="3D-Printed Sandals">
+              <div class="overlay"><span>3D-Printed Sandals</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../research-tools/3d-printed-sandals">
+            <div class="tile-caption">
+              3D-Printed Sandals
+              <span class="role">Sustainable Wearable Sandals: Designer and Fabricator</span>
+            </div>
+          </a>
+        </article>
+        <a class="ext-btn" href="https://www.instructables.com/Final-In-Progress-3D-Printed-Sandals/" target="_blank" rel="noopener" aria-label="View full 3D-Printed Sandals Documentation">View full 3D-Printed Sandals Documentation</a>
+      </div>
+
+      <!-- Flower Lampshades -->
+      <div class="tile-group">
+        <article class="tile">
+          <a class="tile-link" href="../research-tools/flower-lampshades">
+            <div class="tile-media">
+              <img src="../data-webp/FlowerLamp.webp" alt="Flower Lampshades">
+              <div class="overlay"><span>Flower Lampshades</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../research-tools/flower-lampshades">
+            <div class="tile-caption">
+              Flower Lampshades
+              <span class="role">Procedurally Generated Shades: Designer and Fabricator</span>
+            </div>
+          </a>
+        </article>
+        <a class="ext-btn" href="https://www.instructables.com/Week-3-Flower-Lampshades/" target="_blank" rel="noopener" aria-label="View full Flower Lampshades documentation">View full Flower Lampshades documentation</a>
       </div>
     </div>
 
@@ -252,12 +329,12 @@
           <a class="tile-link" href="../research-tools/SlangSwitch">
             <div class="poster-media">
               <img src="../data-webp/SlangSwitch Poster.webp" alt="SlangSwitch">
-              <div class="overlay"><span>SlangSwitch: Slang-to-Formal Language Translator</span></div>
+              <div class="overlay"><span>SlangSwitch: Slang-to-Formal Language Style Translator App</span></div>
             </div>
           </a>
           <a class="tile-link" href="../research-tools/SlangSwitch">
             <div class="poster-caption">
-              SlangSwitch: Slang-to-Formal Language Translator
+              SlangSwitch: Slang-to-Formal Language Style Translator App
               <span class="role">Data Science UCSB Showcase Talk: Developer</span>
             </div>
           </a>
@@ -275,38 +352,6 @@
             <div class="poster-caption">
               Designing Embodied Wearable Technology to Enhance Kinesthetic Expression for Dance
               <span class="role">Senior Honors Thesis Project: Researcher and Designer</span>
-            </div>
-          </a>
-        </article>
-
-        <!-- 3D-Printed Sandals -->
-        <article class="poster-tile">
-          <a class="tile-link" href="../research-tools/3d-printed-sandals">
-            <div class="poster-media">
-              <img src="../data-webp/Sandals Image 1.webp" alt="3D-Printed Sandals">
-              <div class="overlay"><span>3D-Printed Sandals</span></div>
-            </div>
-          </a>
-          <a class="tile-link" href="../research-tools/3d-printed-sandals">
-            <div class="poster-caption">
-              3D-Printed Sandals
-              <span class="role">Sustainable Wearable Sandals: Designer and Fabricator</span>
-            </div>
-          </a>
-        </article>
-
-        <!-- Flower Lampshades -->
-        <article class="poster-tile">
-          <a class="tile-link" href="../research-tools/flower-lampshades">
-            <div class="poster-media">
-              <img src="../data-webp/FlowerLamp.webp" alt="Flower Lampshades">
-              <div class="overlay"><span>Flower Lampshades</span></div>
-            </div>
-          </a>
-          <a class="tile-link" href="../research-tools/flower-lampshades">
-            <div class="poster-caption">
-              Flower Lampshades
-              <span class="role">Procedurally Generated Shades: Designer and Fabricator</span>
             </div>
           </a>
         </article>
