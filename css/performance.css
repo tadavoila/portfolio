@@ -201,7 +201,8 @@ section {
   .subtitle { margin: 0 0 8px; font-size: .96rem; }
   .role { font-size: .96rem; margin-bottom: 12px; }
   .desc { font-size: .98rem; }
-  .credits dl { grid-template-columns: 1fr; }
-  .credits dt { text-align: left; }
+  .credits dl { grid-template-columns: 1fr; justify-items: center; }
+  .credits dt,
+  .credits dd { text-align: center; }
   .buttons .cta-grades { flex-basis: 100%; }
 }

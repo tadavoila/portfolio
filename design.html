@@ -36,10 +36,11 @@
       <label class="hamburger" for="menu-toggle"><span></span></label>
 
       <nav>
-            <a href="/">Home</a>
-            <a href="design" aria-current="page">Design</a>
-            <a href="research-tools">Research and Tools</a>
-            <a href="contact">Contact</a>
+        <a href="/">Home</a>
+        <a href="projection">Projection Design</a>
+        <a href="lighting">Lighting Design</a>
+        <a href="research-tools">Research and Tools</a>
+        <a href="contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -63,10 +64,10 @@
     }
     .subtitle{ text-align:center;color:var(--muted);margin:0 0 24px;font-size:.95rem;}
 
-    /* 3-up, larger tiles */
+    /* 2-up, larger tiles */
     .show-grid{
       display:grid;
-      grid-template-columns: repeat(3, minmax(320px,1fr));
+      grid-template-columns: repeat(2, minmax(320px,1fr));
       gap:24px;
     }
     @media (max-width:1100px){ .show-grid{ grid-template-columns: repeat(2, minmax(300px,1fr)); } }
@@ -111,184 +112,38 @@
 
   <div class="main-content">
   <h2>Design Portfolio</h2>
-    <p class="subtitle">Click each image to learn more.</p>
+    <p class="subtitle">Choose a portfolio to explore.</p>
 
     <div class="show-grid">
 
-      <!-- TrollFest — Assistant Projection Designer -->
+      <!-- Projection Design -->
       <article class="tile">
-        <a class="tile-link" href="../design/trollfest">
+        <a class="tile-link" href="projection">
           <div class="tile-media">
-            <img src="../design-webp/Trollfest/Trollfest Image 1.webp" alt="TrollFest">
-            <div class="overlay"><span>TrollFest</span></div>
+            <img src="../design-webp/Gilgamesh/fire.webp" alt="Projection Design">
+            <div class="overlay"><span>Projection Design</span></div>
           </div>
         </a>
-        <a class="tile-link" href="../design/trollfest">
+        <a class="tile-link" href="projection">
           <div class="tile-caption">
-            TrollFest
-            <span class="role">Assistant Projection Designer</span>
+            Projection Design
+            <span class="role">Shows, installations, and media-driven storytelling</span>
           </div>
         </a>
       </article>
 
-      <!-- UCSB Dance Company (Projections) — Projection Designer (second D.C. tile) -->
+      <!-- Lighting Design -->
       <article class="tile">
-        <a class="tile-link" href="../design/ucsb-dance-company-projections">
+        <a class="tile-link" href="lighting">
           <div class="tile-media">
-            <img src="../design-webp/UCSB Dance Company Projections/UCSB DC Projections Image 2.webp" alt="UCSB Dance Company Projections">
-            <div class="overlay"><span>UCSB Dance Company European Tour: Projections</span></div>
+            <img src="../design-webp/Afterlight/Afterlight Image 1.webp" alt="Lighting Design">
+            <div class="overlay"><span>Lighting Design</span></div>
           </div>
         </a>
-        <a class="tile-link" href="../design/ucsb-dance-company-projections">
+        <a class="tile-link" href="lighting">
           <div class="tile-caption">
-            UCSB Dance Company European Tour: Projections
-            <span class="role">Projection Designer</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- UCSB Dance Company — Lighting & Projection (designer roles only) -->
-      <article class="tile">
-        <a class="tile-link" href="../design/ucsb-dance-company-european-tour">
-          <div class="tile-media">
-            <img src="../design-webp/UCSB Dance Company Lighting/UCSB DC Lighting Image 1.webp" alt="UCSB Dance Company">
-            <div class="overlay"><span>UCSB Dance Company European Tour: Lighting</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/ucsb-dance-company-european-tour">
-          <div class="tile-caption">
-            UCSB Dance Company European Tour: Lighting
-            <span class="role">Lighting Designer</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- UCSB Dance Company - Fundraising Concert (SM removed) -->
-      <article class="tile">
-        <a class="tile-link" href="../design/ucsb-dance-company-fc">
-          <div class="tile-media">
-            <img src="../design-webp/UCSB Dance Company Fundraiser/Fundraiser Image 1.webp" alt="UCSB Dance Company: Fundraising Concert">
-            <div class="overlay"><span>UCSB Dance Company: Fundraising Concert</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/ucsb-dance-company-fc">
-          <div class="tile-caption">
-            UCSB Dance Company: Fundraising Concert
-            <span class="role">Lighting Designer</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- Afterlight — Lighting Designer -->
-      <article class="tile">
-        <a class="tile-link" href="../design/afterlight">
-          <div class="tile-media">
-            <img src="../design-webp/Afterlight/Afterlight Image 1.webp" alt="Afterlight">
-            <div class="overlay"><span>Afterlight: A Waltz Through Time</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/afterlight">
-          <div class="tile-caption">
-            Afterlight: A Waltz Through Time
-            <span class="role">Lighting Designer</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- Strange Birds — Assistant Lighting Designer -->
-      <article class="tile">
-        <a class="tile-link" href="../design/strange-birds">
-          <div class="tile-media">
-            <img src="../design-webp/Strange Birds/Strange Birds Image 6.webp" alt="Strange Birds">
-            <div class="overlay"><span>Strange Birds</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/strange-birds">
-          <div class="tile-caption">
-            Strange Birds
-            <span class="role">Assistant Lighting Designer</span>
-          </div>
-        </a>
-      </article>
-
-
-
-      <!-- The Threepenny Opera — Projection Designer -->
-      <article class="tile">
-        <a class="tile-link" href="../design/threepenny-opera">
-          <div class="tile-media">
-            <img src="../design-webp/Threepenny/Threepenny Opera Image 6.webp" alt="The Threepenny Opera">
-            <div class="overlay"><span>The Threepenny Opera</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/threepenny-opera">
-          <div class="tile-caption">
-            The Threepenny Opera
-            <span class="role">Projection Designer</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- Kinetic Lab — Projection Designer -->
-      <article class="tile">
-        <a class="tile-link" href="../design/kinetic-lab">
-          <div class="tile-media">
-            <img src="../design-webp/Moonlight Symphony/Moonlight Symphony Image 3.webp" alt="Kinetic Lab">
-            <div class="overlay"><span>Kinetic Lab: Moonlight Symphony</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/kinetic-lab">
-          <div class="tile-caption">
-            Kinetic Lab: Moonlight Symphony
-            <span class="role">Projection Designer</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- Indecent — Assistant Projection Designer -->
-      <article class="tile">
-        <a class="tile-link" href="../design/indecent">
-          <div class="tile-media">
-            <img src="../design-webp/Indecent/Indecent Photo 1.webp" alt="Indecent">
-            <div class="overlay"><span>Indecent</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/indecent">
-          <div class="tile-caption">
-            Indecent
-            <span class="role">Assistant Projection Designer</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- Celestial Existence — Media Designer -->
-      <article class="tile">
-        <a class="tile-link" href="../design/celestial-existence">
-          <div class="tile-media">
-            <img src="../design-webp/Celestial Existence/Celestial Existence Image 4.webp" alt="Celestial Existence">
-            <div class="overlay"><span>Celestial Existence</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/celestial-existence">
-          <div class="tile-caption">
-            Celestial Existence
-            <span class="role">Video Designer</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- Night Night, Roger Roger - Scenic Painter-->
-      <article class="tile">
-        <a class="tile-link" href="../design/night-night-roger-roger">
-          <div class="tile-media">
-            <img src="../design-webp/Night Night/Night Night Image 1.webp" alt="Night Night, Roger Roger">
-            <div class="overlay"><span>Night Night, Roger Roger</span></div>
-          </div>
-        </a>
-        <a class="tile-link" href="../design/night-night-roger-roger">
-          <div class="tile-caption">
-            Night Night, Roger Roger
-            <span class="role">Scenic Painter</span>
+            Lighting Design
+            <span class="role">Stage work, concert lighting, and performance worlds</span>
           </div>
         </a>
       </article>

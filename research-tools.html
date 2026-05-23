@@ -37,7 +37,8 @@
 
       <nav>
             <a href="/">Home</a>
-            <a href="design">Design</a>
+        <a href="projection">Projection Design</a>
+        <a href="lighting">Lighting Design</a>
             <a href="research-tools" aria-current="page">Research and Tools</a>
             <a href="contact">Contact</a>
       </nav>
@@ -95,6 +96,8 @@
       -webkit-mask-image:none !important; mask-image:none !important;
       box-shadow:none !important;
     }
+    .tile-media img.zoomed{ transform:scale(1.18); }
+    .tile:hover .tile-media img.zoomed{ transform:scale(1.24); }
     .overlay{
       position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
       background:rgba(0,0,0,.45);opacity:0;transition:opacity .25s ease;
@@ -139,48 +142,6 @@
     .ext-btn:focus-visible{outline:2px solid #fff;outline-offset:2px;}
     @keyframes gradientShift {0%{background-position:0% 50%;}100%{background-position:100% 50%;}}
 
-    /* Poster-size gallery */
-    .poster-wrap{ margin-top:16px; }
-    .poster-heading{
-      font-size:2rem; text-align:center; margin:8px 0 14px;
-      background: linear-gradient(90deg,#00c2ff,#2ee6b8);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      line-height:1.2; display:inline-block; width:100%;
-    }
-    .poster-grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(320px,1fr));
-      gap:24px;
-    }
-    @media (max-width:1100px){ .poster-grid{ grid-template-columns: repeat(2, minmax(300px,1fr)); } }
-    @media (max-width:590px){ .poster-grid{ grid-template-columns:1fr; gap:16px; } }
-    @media (max-width:590px){ .poster-wrap{ margin-top:12px; } }
-
-    .poster-tile{
-      background:var(--bg);
-      border:1px solid rgba(255,255,255,0.1);
-      overflow:hidden; display:flex; flex-direction:column;
-      border-radius:0; box-shadow:none;
-    }
-    .poster-media{
-      position:relative;width:100%;aspect-ratio:2/3;background:#000;overflow:hidden;
-    }
-    .poster-media img{
-      width:100%;height:100%;object-fit:cover;object-position:center;display:block;
-      transition:transform .35s ease, filter .35s ease, opacity .35s ease;
-      border-radius:0 !important; clip-path:none !important;
-      -webkit-mask-image:none !important; mask-image:none !important;
-      box-shadow:none !important;
-    }
-    .poster-caption{
-      background:var(--panel);
-      border-top:1px solid rgba(255,255,255,0.08);
-      padding:14px 14px 16px;
-      font-size:1.05rem; line-height:1.3; color:var(--fg);
-    }
-    .poster-caption .role{ display:block;color:var(--muted);font-size:.9rem;margin-top:2px; }
-    .poster-tile:hover .poster-media img{ filter:brightness(.6); transform:scale(1.03); }
-    .poster-tile:hover .overlay{ opacity:1; }
   </style>
 
   <div class="main-content">
@@ -188,6 +149,25 @@
     <p class="subtitle">Click each image to learn more.</p>
 
     <div class="show-grid">
+
+      <!-- Programmable LED Dance Costumes -->
+      <div class="tile-group">
+      <article class="tile">
+        <a class="tile-link" href="../research-tools/wearabletech">
+          <div class="tile-media">
+            <img class="zoomed" src="../data-webp/LEDs/LED Image 1.webp" alt="Programmable LED Dance Costumes">
+            <div class="overlay"><span>Programmable LED Dance Costumes</span></div>
+          </div>
+        </a>
+        <a class="tile-link" href="../research-tools/wearabletech">
+          <div class="tile-caption">
+            Programmable LED Dance Costumes
+            <span class="role">Wearables for Dance Expression: Creator and Author</span>
+          </div>
+        </a>
+      </article>
+      <a class="ext-btn" href="https://www.youtube.com/watch?v=fxwzixMv4U0" target="_blank" rel="noopener" aria-label="Watch the full performance for Programmable LED Dance Costumes">Watch the full performance</a>
+      </div>
 
       <!-- p5.chart.js -->
       <div class="tile-group">
@@ -225,6 +205,63 @@
         </a>
       </article>
       <a class="ext-btn" href="https://pattern-illustrator.vercel.app/" target="_blank" rel="noopener" aria-label="Visit the Pattern Illustrator website">Visit the Pattern Illustrator website</a>
+      </div>
+
+      <!-- Inside Storke Tower -->
+      <div class="tile-group">
+        <article class="tile">
+          <a class="tile-link" href="https://dailynexus.com/interactives/storke-tower-carillon/" target="_blank" rel="noopener">
+            <div class="tile-media">
+              <img src="../data-webp/Storke/Storke 1.webp" alt="Inside Storke Tower: The story of a carillon">
+              <div class="overlay"><span>Inside Storke Tower: The story of a carillon</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="https://dailynexus.com/interactives/storke-tower-carillon/" target="_blank" rel="noopener">
+            <div class="tile-caption">
+              Inside Storke Tower: The story of a carillon
+              <span class="role">Interactive Story: Creator and Author</span>
+            </div>
+          </a>
+        </article>
+        <a class="ext-btn" href="https://dailynexus.com/interactives/storke-tower-carillon/" target="_blank" rel="noopener" aria-label="Read the full article for Inside Storke Tower">Read the full article</a>
+      </div>
+
+      <!-- Dynamical Systems -->
+      <div class="tile-group">
+        <article class="tile">
+          <a class="tile-link" href="../research-tools/dynamical-systems">
+            <div class="tile-media">
+              <img src="../data-webp/CAMP7_ Chattoraj, Patel, & Todd (2024).webp" alt="Modeling Language Change">
+              <div class="overlay"><span>Modeling Language Change</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../research-tools/dynamical-systems">
+            <div class="tile-caption">
+              Modeling Language Change
+              <span class="role">CAMP[7] Poster: Researcher</span>
+            </div>
+          </a>
+        </article>
+        <a class="ext-btn" href="http://127.0.0.1:5500/data-files/CAMP7_%20Chattoraj,%20Patel,%20&%20Todd%20(2024).pdf" target="_blank" rel="noopener" aria-label="View the full poster for Dynamical Systems">View the full poster</a>
+      </div>
+
+      <!-- SlangSwitch -->
+      <div class="tile-group">
+        <article class="tile">
+          <a class="tile-link" href="../research-tools/SlangSwitch">
+            <div class="tile-media">
+              <img src="../data-webp/SlangSwitch Poster.webp" alt="SlangSwitch: Slang-to-Formal Translator">
+              <div class="overlay"><span>SlangSwitch: Slang-to-Formal Translator</span></div>
+            </div>
+          </a>
+          <a class="tile-link" href="../research-tools/SlangSwitch">
+            <div class="tile-caption">
+              SlangSwitch: Slang-to-Formal Translator
+              <span class="role">Data Science UCSB Showcase Talk: Developer</span>
+            </div>
+          </a>
+        </article>
+        <a class="ext-btn" href="http://127.0.0.1:5500/data-webp/SlangSwitch%20Poster.webp" target="_blank" rel="noopener" aria-label="View the full poster for SlangSwitch">View the full poster</a>
       </div>
 
       <!-- Daily Nexus Grades Search -->
@@ -304,59 +341,6 @@
       </div>
     </div>
 
-    <!-- Poster-size container for the last five images -->
-    <div class="poster-wrap" aria-label="Poster size gallery">
-      <div class="poster-grid">
-
-        <!-- Dynamical Systems -->
-        <article class="poster-tile">
-          <a class="tile-link" href="../research-tools/dynamical-systems">
-            <div class="poster-media">
-              <img src="../data-webp/CAMP7_ Chattoraj, Patel, & Todd (2024).webp" alt="Dynamical Systems Models of Language Change">
-              <div class="overlay"><span>Deepening Understanding of Frequency Effects in Exemplar Models of Language Change</span></div>
-            </div>
-          </a>
-          <a class="tile-link" href="../research-tools/dynamical-systems">
-            <div class="poster-caption">
-              Deepening Understanding of Frequency Effects in Exemplar Models of Language Change
-              <span class="role">CAMP[7] Poster: Researcher</span>
-            </div>
-          </a>
-        </article>
-
-        <!-- SlangSwitch -->
-        <article class="poster-tile">
-          <a class="tile-link" href="../research-tools/SlangSwitch">
-            <div class="poster-media">
-              <img src="../data-webp/SlangSwitch Poster.webp" alt="SlangSwitch">
-              <div class="overlay"><span>SlangSwitch: Slang-to-Formal Language Style Translator App</span></div>
-            </div>
-          </a>
-          <a class="tile-link" href="../research-tools/SlangSwitch">
-            <div class="poster-caption">
-              SlangSwitch: Slang-to-Formal Language Style Translator App
-              <span class="role">Data Science UCSB Showcase Talk: Developer</span>
-            </div>
-          </a>
-        </article>
-
-        <!-- Wearable Technology For Dance -->
-        <article class="poster-tile">
-          <a class="tile-link" href="../research-tools/wearabletech">
-            <div class="poster-media">
-              <img src="../data-webp/wearable_dress_led.webp" alt="Wearable Technology For Dance">
-              <div class="overlay"><span>Designing Embodied Wearable Technology to Enhance Kinesthetic Expression for Dance</span></div>
-            </div>
-          </a>
-          <a class="tile-link" href="../research-tools/wearabletech">
-            <div class="poster-caption">
-              Designing Embodied Wearable Technology to Enhance Kinesthetic Expression for Dance
-              <span class="role">Senior Honors Thesis Project: Researcher and Designer</span>
-            </div>
-          </a>
-        </article>
-      </div>
-    </div>
   </div>
 </section>
 </html>

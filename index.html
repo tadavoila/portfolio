@@ -46,6 +46,13 @@
     @media (max-width:960px) {
       .hero { grid-template-columns:1fr; padding:48px 0 24px; }
     }
+    @media (max-width:960px) {
+      .hero-left { text-align:center; }
+      .hero-left .actions { justify-content:center; }
+      .hero-left .socials { justify-content:center; }
+      .hero-left .eyebrow { text-align:center; }
+      .hero-left p { margin-left:auto; margin-right:auto; text-align:center; }
+    }
 
     .hero-left .eyebrow {
       color:var(--muted);
@@ -216,6 +223,8 @@
       object-fit:cover;
       transition:transform .35s ease, filter .35s ease;
     }
+    .tile-media img.zoomed { transform: scale(1.18); }
+    .tile:hover .tile-media img.zoomed { transform: scale(1.24); }
 
     .overlay {
       position:absolute;
@@ -326,7 +335,8 @@
 
       <nav>
         <a href="/" aria-current="page">Home</a>
-        <a href="design">Design</a>
+        <a href="projection">Projection Design</a>
+        <a href="lighting">Lighting Design</a>
         <a href="research-tools">Research and Tools</a>
         <a href="contact">Contact</a>
       </nav>
@@ -340,7 +350,7 @@
       <h1>Siddharth Chattoraj</h1>
       <p>
         Storyteller, designer, and developer blending art and technology 
-        to build expressive systems—lighting & projections, interactive visuals, and research-driven tools.
+        to build expressive systems including creativity support tools, lighting & projections, and interactive visuals.
       </p>
 
       <div class="actions">
@@ -381,11 +391,26 @@
   <!-- ===== SELECTED DESIGN WORK ===== -->
   <section aria-labelledby="sel-design-head">
     <div class="section-head">
-      <div class="section-title" id="sel-design-head">Design Work</div>
-      <div class="section-sub">A few highlights—see the full set on the Design page.</div>
+      <div class="section-title" id="sel-design-head">Projection Design Work</div>
+      <div class="section-sub">A few highlights. See the full set on the Projection page.</div>
     </div>
 
     <div class="show-grid">
+      <article class="tile">
+        <a class="tile-link" href="design/gilgamesh">
+          <div class="tile-media">
+            <img src="design-webp/Gilgamesh/fire.webp" alt="Gilgamesh: The Opera production still">
+            <div class="overlay">Gilgamesh: The Opera</div>
+          </div>
+        </a>
+        <a class="tile-link" href="design/gilgamesh">
+          <div class="tile-caption">
+            Gilgamesh: The Opera
+            <span class="role">Assistant Projection Designer</span>
+          </div>
+        </a>
+      </article>
+
       <article class="tile">
         <a class="tile-link" href="design/trollfest">
           <div class="tile-media">
@@ -415,36 +440,94 @@
           </div>
         </a>
       </article>
+    </div>
 
+    <div class="more-row">
+      <a class="link-pill" href="projection">Projection Design Portfolio</a>
+    </div>
+  </section>
+
+  <!-- ===== LIGHTING DESIGN WORK ===== -->
+  <section aria-labelledby="sel-lighting-head">
+    <div class="section-head">
+      <div class="section-title" id="sel-lighting-head">Lighting Design Work</div>
+      <div class="section-sub">Featured lighting projects. See the full set on the Lighting page.</div>
+    </div>
+
+    <div class="show-grid">
       <article class="tile">
-        <a class="tile-link" href="design/threepenny-opera">
+        <a class="tile-link" href="design/bodies-of-art">
           <div class="tile-media">
-            <img src="design-webp/Threepenny/Threepenny Opera Image 6.webp" alt="The Threepenny Opera projections still">
-            <div class="overlay">The Threepenny Opera</div>
+            <img src="design-webp/Bodies of Light/Bodies of Art 18.webp" alt="Bodies of Art">
+            <div class="overlay">Bodies of Art</div>
           </div>
         </a>
-        <a class="tile-link" href="design/threepenny-opera">
+        <a class="tile-link" href="design/bodies-of-art">
           <div class="tile-caption">
-            The Threepenny Opera
-            <span class="role">Projection Designer</span>
+            Bodies of Art
+            <span class="role">Lighting Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="tile">
+        <a class="tile-link" href="design/ucsb-dance-company-european-tour">
+          <div class="tile-media">
+            <img src="design-webp/UCSB Dance Company Lighting/UCSB DC Lighting Image 1.webp" alt="UCSB Dance Company European Tour: Lighting">
+            <div class="overlay">UCSB Dance Company European Tour: Lighting</div>
+          </div>
+        </a>
+        <a class="tile-link" href="design/ucsb-dance-company-european-tour">
+          <div class="tile-caption">
+            UCSB Dance Company European Tour: Lighting
+            <span class="role">Lighting Designer</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="tile">
+        <a class="tile-link" href="design/afterlight">
+          <div class="tile-media">
+            <img src="design-webp/Afterlight/Afterlight Image 1.webp" alt="Afterlight: A Waltz Through Time">
+            <div class="overlay">Afterlight: A Waltz Through Time</div>
+          </div>
+        </a>
+        <a class="tile-link" href="design/afterlight">
+          <div class="tile-caption">
+            Afterlight: A Waltz Through Time
+            <span class="role">Lighting Designer</span>
           </div>
         </a>
       </article>
     </div>
 
     <div class="more-row">
-      <a class="link-pill" href="design">Design Portfolio</a>
+      <a class="link-pill" href="lighting">Lighting Design Portfolio</a>
     </div>
   </section>
 
   <!-- ===== RESEARCH AND TOOLS ===== -->
   <section aria-labelledby="sel-research-head">
     <div class="section-head">
-      <div class="section-title" id="sel-research-head">Research and Tools</div>
-      <div class="section-sub">Selected projects—explore more on the Research and Tools page.</div>
+      <div class="section-title" id="sel-research-head">Creativity Support Tools</div>
+      <div class="section-sub">Selected projects. Explore more on the Research and Tools page.</div>
     </div>
 
       <div class="show-grid research-grid">
+
+        <!-- Programmable LED Dance Costumes -->
+        <article class="tile">
+          <a class="tile-link" href="research-tools/wearabletech">
+            <div class="tile-media">
+              <img class="zoomed" src="data-webp/LEDs/LED Image 1.webp" alt="Programmable LED Dance Costumes">
+              <div class="overlay">Programmable LED Dance Costumes</div>
+            </div>
+          </a>
+          <div class="tile-caption">
+            <a class="tile-link" href="research-tools/wearabletech">Programmable LED Dance Costumes</a>
+            <span class="role">Wearables for Dance Expression<br>Creator and Author</span>
+          </div>
+        </article>
 
         <!-- p5.chart.js -->
         <article class="tile">
@@ -471,20 +554,6 @@
           <div class="tile-caption">
             <a class="tile-link" href="research-tools/PatternIllustrator">Pattern Illustrator</a>
             <span class="role">Drawing and Animation Tool<br>Designer and Developer</span>
-          </div>
-        </article>
-
-        <!-- Deepening Understanding of Frequency Effects Poster -->
-        <article class="tile">
-          <a class="tile-link" href="research-tools/dynamical-systems">
-            <div class="tile-media">
-              <img src="data-webp/CAMP7_ Chattoraj, Patel, & Todd (2024).webp" alt="Deepening Understanding of Frequency Effects in Exemplar Models of Language Change">
-              <div class="overlay">Deepening Understanding of Frequency Effects in Exemplar Models of Language Change</div>
-            </div>
-          </a>
-          <div class="tile-caption">
-            <a class="tile-link" href="research-tools/dynamical-systems">Deepening Understanding of Frequency Effects in Exemplar Models of Language Change</a>
-            <span class="role">CAMP[7] Poster: Researcher</span>
           </div>
         </article>
       </div>
@@ -544,17 +613,7 @@
           </div>
         </div>
         
-        <div class="actions" style="margin-top: 20px; justify-content: center;">
-          <a href="design" class="btn">
-            <i class="fa-solid fa-palette"></i> Design Portfolio
-          </a>
-          <a href="research-tools" class="btn">
-            <i class="fa-solid fa-flask"></i> Research and Tools Portfolio
-          </a>
-          <a href="contact" class="btn">
-            <i class="fa-solid fa-paper-plane"></i> Contact
-          </a>
-        </div>
+        
       </div>
     </div>
     
