@@ -281,13 +281,15 @@
       margin-top:2px;
     }
 
+    .about-photo-grid,
     .about-extra-grid {
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:12px;
       margin-top:18px;
     }
-    @media (max-width:640px) {
+    @media (max-width:720px) {
+      .about-photo-grid,
       .about-extra-grid { grid-template-columns:1fr; }
     }
     .about-caption {
@@ -644,7 +646,7 @@
       </div>
       
       <div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div class="about-photo-grid">
           <div class="about-image-tile">
             <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
               <img src="data-webp/LED Discussion.webp" alt="LED Discussion" style="width: 100%; height: 100%; object-fit: cover;">
