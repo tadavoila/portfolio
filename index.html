@@ -263,6 +263,45 @@
       font-size:.9rem;
       margin-top:2px;
     }
+
+    .about-extra-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+    @media (max-width:640px) {
+      .about-extra-grid { grid-template-columns:1fr; }
+    }
+    .about-caption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+    .about-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      align-items:start;
+    }
+    .about-copy {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+    .about-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+    @media (max-width:960px) {
+      .about-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .about-actions { justify-content:flex-start; }
+    }
     /* External rectangular buttons below selected research tiles */
     .tile-group{display:flex;flex-direction:column;}
     .ext-btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 18px;margin:10px 0 4px;align-self:flex-start;background:#1a1a1a;color:#d8d8d8;font-size:.78rem;font-weight:600;letter-spacing:.35px;border:1px solid var(--stroke);border-radius:5px;text-decoration:none;transition:background .35s ease, box-shadow .35s ease, transform .15s ease, filter .25s ease;background-size:200% 100%;background-position:0% 50%;}
@@ -445,7 +484,7 @@
     </div>
 
     <div class="more-row">
-      <a class="link-pill" href="projection">Projection Design Portfolio</a>
+      <a class="btn" href="projection">Projection Design Portfolio</a>
     </div>
   </section>
 
@@ -504,7 +543,7 @@
     </div>
 
     <div class="more-row">
-      <a class="link-pill" href="lighting">Lighting Design Portfolio</a>
+      <a class="btn" href="lighting">Lighting Design Portfolio</a>
     </div>
   </section>
 
@@ -562,7 +601,7 @@
     
 
     <div class="more-row">
-      <a class="link-pill" href="creative-technology">Creative Technology Portfolio</a>
+      <a class="btn" href="creative-technology">Creative Technology Portfolio</a>
     </div>
   </section>
 
@@ -577,29 +616,31 @@
       <div class="section-title" id="about-head">About Siddharth</div>
     </div>
     
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
-      <div style="color: var(--muted); line-height: 1.7; font-size: 1.05rem;">
+    <div class="about-grid">
+      <div class="about-copy">
         <p>
-          I'm a visual storyteller passionate about building systems that blend art, design, and computation, and I graduated with my B.S. in Statistics and Data Science, B.A. in Theater (Design), and minor in Language and Speech Technologies from UC Santa Barbara. My work spans theatrical lighting and projection design, interactive visualizations, data-driven tools, tutoring data science courses, and research on computational psycholinguistics. Most recently, I served as the assistant projection designer for Trollfest in Juneau, worked as the technical director/lighting and projections designer for UCSB Dance Company on their 2025 European tour across Spain, Poland, North Macedonia, and Bulgaria, presented research on exemplar models of language change at UC San Diego, and earned statewide journalism awards for Best Infographic, Best Interactive Graphic and Best Multimedia Package from the California College Media Association. 
-        </p>
+          I’m Siddharth Chattoraj, a visual storyteller and creative technologist who designs accessible creativity support tools for interactive storytelling. My work blends art, design, and computation across creative coding, data visualization, live performance, and wearable technology. I authored <em>p5.chart.js</em>, the first published data visualization library for p5.js, and <em>Pattern Illustrator</em>, a drawing and animation tool that helps beginner computer artists translate ideas into visual forms. I have designed projections and lighting for concerts around the world, including <em>Gilgamesh: The Opera</em> in Cerritos, <em>TrollFest</em> in Juneau, and the UCSB Dance Company’s European tour. I have presented data-driven research and installations at conferences across Santa Barbara, Los Angeles, San Diego, and San Francisco. My newest work, a pair of LED-integrated costumes that empower dancers and designers to author the visual aesthetic of performance in real time, will be presented and published at ACM SIGGRAPH in 2026.
         <p>
-          I am currently focused on developing creativity support systems that assist with ideation and multimodal storytelling and can bridge the gap between computational inference and human understanding. 
+          I hold a B.S. in Statistics and Data Science, a B.A. in Theater with a concentration in Design, and a minor in Language and Speech Technologies from the University of California, Santa Barbara, where I graduated with Highest Honors and Distinction in Major. Across my work, I investigate how creative technology can amplify underrepresented ideas and voices through interactive systems, embodied media, and public-facing storytelling tools.
         </p>
+        <div class="about-actions">
+          <a class="btn" href="contact">Contact Me</a>
+        </div>
       </div>
       
       <div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="about-image-tile">
             <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
-              <img src="data-webp/slangswitch_team.webp" alt="SlangSwitch team" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="data-webp/LED Discussion.webp" alt="LED Discussion" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">SlangSwitch: Winning second place at Data Science UCSB project showcase</div>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">LED Dance Costumes: Discussing the expressive possibilities of wearable technology for dance</div>
           </div>
           <div class="about-image-tile">
             <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
-              <img src="data-webp/datafest_team.webp" alt="DataFest team" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="data-webp/Gilgamesh Projections.webp" alt="Gilgamesh Projections" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">DataFest: Presenting research into improving the ABA's Free Legal Answers</div>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">Gilgamesh Opera: Testing projection maps at the Cerritos Center for the Performing Arts</div>
           </div>
           <div class="about-image-tile">
             <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
@@ -614,18 +655,26 @@
             <div style="color: var(--muted); font-size: 0.85rem; margin-top: 6px; line-height: 1.3;">TrollFest: Programming projection cues with Professor Greg Mitchell</div>
           </div>
         </div>
+
+        <div class="about-extra-grid">
+          <div class="about-image-tile">
+            <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
+              <img src="data-webp/slangswitch_team.webp" alt="SlangSwitch team" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="about-caption">SlangSwitch: Winning second place at Data Science UCSB project showcase</div>
+          </div>
+          <div class="about-image-tile">
+            <div style="border: 1px solid var(--stroke); border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; position: relative;">
+              <img src="data-webp/datafest_team.webp" alt="DataFest team" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="about-caption">DataFest: Presenting research into improving the ABA's Free Legal Answers</div>
+          </div>
+        </div>
         
         
       </div>
     </div>
     
-    <style>
-      @media (max-width: 960px) {
-        section[aria-labelledby="about-head"] > div:last-of-type {
-          grid-template-columns: 1fr !important;
-        }
-      }
-    </style>
   </section>
 
   <footer>
